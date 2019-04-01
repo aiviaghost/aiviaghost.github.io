@@ -1,0 +1,200 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%; 
+    scroll-behavior: smooth;
+    /*background-color:rgba(144,238,144 ,1 );*/
+    background: linear-gradient(to right, #07a041, 35%, #4dff91);
+}
+
+#bigGrid{
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh 10vh auto 10vh auto auto;
+    grid-template-areas: "sp1 sp2"
+                         "d1 d1"
+                         "f1 f1"
+                         "d2 d2"
+                         "sGrid sGrid"
+                         "d3 d3"
+    ;
+}
+
+#sp1{
+    grid-area: sp1;
+}
+
+#sp2{
+    grid-area: sp2;
+    background-color: #40ec81;
+    /*background: linear-gradient(to right, #38ef7d, 75%, #11998e);*/
+    text-align: center;
+}
+
+header{
+    position: relative;
+    top: 35vh;
+    font-size: 3.5em;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    color: white;
+}
+
+#spTXT{
+    position: relative;
+    top: 40vh;
+    font-size: 1.1em;
+    color: white;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+.parallax{
+	height: 100%;
+	/*background-attachment: fixed;*/
+	background-position: center;
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.para1{
+    background-image: url(../Images/damnGood.jpg);
+}
+
+#scrollDown{
+    width: 13vh;
+    height: 13vh;
+    position: relative;
+    left: calc(100% - 6.5vh);
+    bottom: 17vh;
+    background: url(../Images/scrollDown.gif);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #40ec81;
+    border-radius: 100%;
+}
+
+#flex1{
+    grid-area: f1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.f1Sec{
+    height: auto;
+    margin: 1em;
+    padding: 1em;
+    flex: 1 1 calc(100vw - 2em);  /*hmm??!!? undrar vad jag gjort??? säkert något bra*/
+}
+
+h2{
+    text-align: center;
+}
+
+#smallGrid{
+    grid-area: sGrid;
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 12vh;
+    grid-template-areas: "imgs imgs imgs1Info"
+                         "btnL btnR imgs1Info"    
+    ;
+}
+
+#imgs{
+    grid-area: imgs;
+    height: 50vh;
+    background-image: url(../Images/road_snow_winter_trees.jpg);
+    background-size: auto 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+button, input[type="submit"], input[type="reset"] {  /*Nice*/
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+button{
+    height: 10vh;
+    width: 10vh;
+    margin-left: calc((50vw/3) - 5vh);
+    background-color: white;
+    border-radius: 100%;
+    font-size: 2em;
+}
+
+#btnL{
+    grid-area: btnL;
+}
+
+#btnR{
+    grid-area: btnR;
+}
+
+#imgs1Info{
+    grid-area: imgs1Info;
+    height: auto;
+    word-wrap: break-word;
+    margin: 2em;
+    padding: 1em;
+}
+
+#specsH2{
+    font-size: 2.3em;
+}
+
+#specs{
+    padding: 1em;
+    font-size: 1.4em;
+}
+
+.divider{
+    background-color: #43464B;
+}
+
+#d1{
+    grid-area: d1;
+}
+
+#d2{
+    grid-area: d2;
+}
+
+#d3{
+    grid-area: d3;
+    color: white;
+    padding: 1em;
+}
+
+#peoples{
+    list-style: none;
+}
+
+
+
+/*Media queries: */
+@media only screen and (max-width: 900px) {
+
+
+    #flex1{
+        flex-flow: row wrap;
+        /*align-content: stretch;*/
+    }
+
+
+}
