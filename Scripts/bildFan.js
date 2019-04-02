@@ -1,12 +1,20 @@
 
-/*$("document").ready(function(){
+$(document).ready(function(){
+    $('#sp1').slick({
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false,
+      //slidesToScroll: 4
+    });
 
-    let pics = ["Images/spring.jpg", "Images/sunny.jpg", "Images/autumn.jpg", "Images/damnGood.jpg"];
-    let x = 0;
-
-    setInterval(function(){
-        $(".para1").css({"background": "url("+pics[x%4]+")", "background-position": "center", "background-repeat": "no-repeat", "background-size": "cover"});
-        x++;
-    }, 4000);
-
-})*/
+    $('.imgs').slick({
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: true,
+      slidesToShow: 3,
+      draggable: false,
+      //slidesToScroll: 4
+    });
+});

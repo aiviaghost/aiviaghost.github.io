@@ -11,21 +11,6 @@ html, body{
     background: linear-gradient(to right, #07a041, 35%, #4dff91);
 }
 
-#bigGrid{
-    display: grid;
-    width: 100%;
-    height: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100vh 10vh auto 10vh auto auto;
-    grid-template-areas: "sp1 sp2"
-                         "d1 d1"
-                         "f1 f1"
-                         "d2 d2"
-                         "sGrid sGrid"
-                         "d3 d3"
-    ;
-}
-
 #sp1{
     grid-area: sp1;
 }
@@ -63,9 +48,38 @@ header{
 
 .para1{
     background-image: url(../Images/damnGood.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+}
+
+.para2{
+    background-image: url(../Images/spring.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+}
+
+.para3{
+    background-image: url(../Images/sunny.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+}
+
+.para4{
+    background-image: url(../Images/autumn.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
 }
 
 #scrollDown{
+    z-index: 2;
     width: 13vh;
     height: 13vh;
     position: absolute;
@@ -103,24 +117,68 @@ h2{
     grid-area: sGrid;
     display: grid;
     width: 100%;
-    height: auto;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 12vh;
-    grid-template-areas: "imgs imgs imgs1Info"
-                         "btnL btnR imgs1Info"    
+    height: 50vh;
+    grid-template-columns: 66.67% 33.33%;
+    grid-template-rows: auto;
+    grid-template-areas: "imgs imgs1Info"
     ;
+    padding-top: 5vh;
 }
 
-#imgs{
-    grid-area: imgs;
-    height: 50vh;
-    background-image: url(../Images/road_snow_winter_trees.jpg);
-    background-size: auto 40vh;
+.b1{
+    background-image: url(../Images/sadel/IMG_20190402_145441.jpg);
+    background-size: contain;
+    height: 40vh;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-button, input[type="submit"], input[type="reset"] {  /*Nice*/
+.b2{
+    background-image: url(../Images/sadel/IMG_20190402_145334.jpg);
+    background-size: contain;
+    height: 40vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.b3{
+    background-image: url(../Images/sadel/IMG_20190402_145406.jpg);
+    background-size: contain;
+    height: 40vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.b4{
+    background-image: url(../Images/sadel/IMG_20190402_145422.jpg);
+    background-size: contain;
+    height: 40vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.b5{
+    background-image: url(../Images/sadel/IMG_20190402_145427.jpg);
+    background-size: contain;
+    height: 40vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slick-prev{
+    display: none;
+}
+
+.slick-next{
+    right: 15px;
+}
+
+/*button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
 	border: none;
@@ -137,15 +195,7 @@ button{
     background-color: white;
     border-radius: 100%;
     font-size: 2em;
-}
-
-#btnL{
-    grid-area: btnL;
-}
-
-#btnR{
-    grid-area: btnR;
-}
+}*/
 
 #imgs1Info{
     grid-area: imgs1Info;
@@ -184,6 +234,21 @@ button{
 
 #peoples{
     list-style: none;
+}
+
+#bigGrid{
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100vh 10vh auto 10vh auto auto;
+    grid-template-areas: "sp1 sp2"
+                         "d1 d1"
+                         "f1 f1"
+                         "d2 d2"
+                         "sGrid sGrid"
+                         "d3 d3"
+    ;
 }
 
 
