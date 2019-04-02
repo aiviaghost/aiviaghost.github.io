@@ -8,7 +8,7 @@ html, body{
     height: 100%; 
     scroll-behavior: smooth;
     /*background-color:rgba(144,238,144 ,1 );*/
-    background: linear-gradient(to right, #07a041, 35%, #4dff91);
+    background: linear-gradient(to right, #07a041, 35%, #43dd7e);
 }
 
 #sp1{
@@ -17,23 +17,23 @@ html, body{
 
 #sp2{
     grid-area: sp2;
-    background-color: #40ec81;
+    background-color: #37d172;
     /*background: linear-gradient(to right, #38ef7d, 75%, #11998e);*/
     text-align: center;
 }
 
 header{
     position: relative;
-    top: 35vh;
-    font-size: 3.5em;
+    top: 40vh;
+    font-size: 3.7em;
     font-family: 'Encode Sans Expanded', sans-serif;
     color: white;
 }
 
 #spTXT{
     position: relative;
-    top: 40vh;
-    font-size: 1.1em;
+    top: 45vh;
+    font-size: 1.2em;
     color: white;
     font-family: 'Encode Sans Expanded', sans-serif;
 }
@@ -55,7 +55,7 @@ header{
 }
 
 .para2{
-    background-image: url(../Images/spring.jpg);
+    background-image: url(../Images/imageedit_6_3537849042.jpg);
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -63,7 +63,7 @@ header{
 }
 
 .para3{
-    background-image: url(../Images/sunny.jpg);
+    background-image: url(../Images/imageedit_4_5019488845.jpg);
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -71,7 +71,7 @@ header{
 }
 
 .para4{
-    background-image: url(../Images/autumn.jpg);
+    background-image: url(../Images/imageedit_2_3972373858.jpg);
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -90,7 +90,7 @@ header{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #40ec81;
+    background-color: #37d172;
     border-radius: 100%;
 }
 
@@ -100,9 +100,13 @@ header{
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: space-evenly;
+    color: white;
+    font-family: 'Encode Sans Expanded', sans-serif;
 }
 
 .f1Sec{
+    line-height: 1.4;
+    font-size: 1.1em;
     height: auto;
     margin: 1em;
     padding: 1em;
@@ -126,7 +130,7 @@ h2{
 }
 
 .b1{
-    background-image: url(../Images/IMG_20190402_145441.jpg);
+    background-image: url(../Images/sadel/IMG_20190402_145441.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -135,7 +139,7 @@ h2{
 }
 
 .b2{
-    background-image: url(../Images/IMG_20190402_145334.jpg);
+    background-image: url(../Images/sadel/IMG_20190402_145334.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -144,7 +148,7 @@ h2{
 }
 
 .b3{
-    background-image: url(../Images/IMG_20190402_145406.jpg);
+    background-image: url(../Images/sadel/IMG_20190402_145406.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -153,7 +157,7 @@ h2{
 }
 
 .b4{
-    background-image: url(../Images/IMG_20190402_145422.jpg);
+    background-image: url(../Images/sadel/IMG_20190402_145422.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -162,7 +166,7 @@ h2{
 }
 
 .b5{
-    background-image: url(../Images/IMG_20190402_145427.jpg);
+    background-image: url(../Images/sadel/IMG_20190402_145427.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -203,6 +207,8 @@ button{
     word-wrap: break-word;
     margin: 2em;
     padding: 1em;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    color: white;
 }
 
 #specsH2{
