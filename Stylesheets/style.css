@@ -179,7 +179,7 @@ h2{
 }
 
 .slick-next{
-    right: 15px;
+    display: none;
 }
 
 /*button, input[type="submit"], input[type="reset"] {
