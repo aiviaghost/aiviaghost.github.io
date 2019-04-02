@@ -12,7 +12,7 @@ $(document).ready(function(){
     infinite: true,
     autoplay: true,
     autoplaySpeed: 4000,
-    arrows: true,
+    arrows: false,
     slidesToShow: 3,
     dots: true,
     //slidesToScroll: 4
