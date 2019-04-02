@@ -174,14 +174,6 @@ h2{
     background-repeat: no-repeat;
 }
 
-.slick-prev{
-    display: none;
-}
-
-.slick-next{
-    display: none;
-}
-
 /*button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
