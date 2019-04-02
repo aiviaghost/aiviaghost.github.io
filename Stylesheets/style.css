@@ -68,8 +68,9 @@ header{
 #scrollDown{
     width: 13vh;
     height: 13vh;
-    position: relative;
-    left: calc(100% - 6.5vh);
+    position: absolute;
+    top: 83vh;
+    left: calc(50% - 6.5vh);
     bottom: 17vh;
     background: url(../Images/scrollDown.gif);
     background-size: contain;
