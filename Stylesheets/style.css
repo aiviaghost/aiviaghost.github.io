@@ -224,8 +224,8 @@ button{
     grid-area: d2;
 }
 
-#d3{
-    grid-area: d3;
+footer{
+    grid-area: feet;
     color: white;
     padding: 1em;
 }
@@ -245,7 +245,7 @@ button{
                          "f1 f1"
                          "d2 d2"
                          "sGrid sGrid"
-                         "d3 d3"
+                         "feet feet"
     ;
 }
 
