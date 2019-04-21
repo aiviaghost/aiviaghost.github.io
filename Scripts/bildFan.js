@@ -5,7 +5,6 @@ $(document).ready(function(){
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
-    //slidesToScroll: 4
   });
 
   $('.imgs').slick({
@@ -14,7 +13,7 @@ $(document).ready(function(){
     autoplaySpeed: 4000,
     arrows: false,
     slidesToShow: 3,
-    dots: true,
-    //slidesToScroll: 4
+    draggable: true,
+    dots: false,
   });
 });

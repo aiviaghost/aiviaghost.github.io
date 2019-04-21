@@ -8,8 +8,67 @@ html, body{
     height: 100%; 
     scroll-behavior: smooth;
     /*background-color:rgba(144,238,144 ,1 );*/
-    background: linear-gradient(to right, #07a041, 35%, #43dd7e);
+    /*background: linear-gradient(to right, #07a041, 35%, #43dd7e);*/
 }
+
+#triangle1{
+    position: absolute;
+    top: 110vh;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #37d172;
+    border-left: 30px solid #37d172;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+}
+
+/*Triangels: */
+#triangle2{
+    position: relative;
+    left: calc(100% - 40px);
+    bottom: 40px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 20px solid #37d172;
+    border-bottom: 20px solid #37d172;
+}
+
+#triangle3{
+    position: absolute;
+    top: 110vh;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #37d172;
+    border-left: 30px solid #37d172;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+}
+
+#triangle3{
+    position: relative;
+    top: calc(10vh - 40px);
+    width: 0;
+    height: 0;
+    border-top: 15px solid #37d172;
+    border-left: 15px solid #37d172;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+#triangle4{
+    position: relative;
+    top: calc(60vh - 150px);
+    left: calc(100% - 80px);
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 40px solid transparent;
+    border-right: 40px solid #37d172;
+    border-bottom: 40px solid #37d172;
+}
+/**/
 
 #sp1{
     grid-area: sp1;
@@ -100,7 +159,6 @@ header{
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: space-evenly;
-    color: white;
     font-family: 'Encode Sans Expanded', sans-serif;
 }
 
@@ -200,7 +258,6 @@ button{
     margin: 2em;
     padding: 1em;
     font-family: 'Encode Sans Expanded', sans-serif;
-    color: white;
 }
 
 #specsH2{
