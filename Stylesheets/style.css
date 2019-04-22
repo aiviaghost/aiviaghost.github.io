@@ -290,7 +290,7 @@ button{
 }
 
 #vidContainer iframe{
-    padding: 10vh;
+    padding: 14vh;
     position: absolute; 
     top:0; 
     left: 0;
@@ -388,6 +388,10 @@ footer{
 }
 
 @media only screen and (max-width: 600px) {
+    header{
+        font-size: 3em;
+    }
+
     #smallGrid{
         height: auto;
         grid-template-columns: 100%;
@@ -395,5 +399,15 @@ footer{
         grid-template-areas: "imgs"
                             "imgs1Info"
         ;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    header{
+        font-size: 2em;
+    }
+
+    #spTXT{
+        font-size: 1.1em;
     }
 }
