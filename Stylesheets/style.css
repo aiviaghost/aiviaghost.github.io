@@ -59,7 +59,7 @@ html, body{
 
 #triangle4{
     position: relative;
-    top: calc(60vh - 150px);
+    bottom: 80px;
     left: calc(100% - 80px);
     width: 0;
     height: 0;
@@ -176,7 +176,7 @@ h2{
 }
 
 .b1{
-    background-image: url(../Images/sadel/IMG_20190402_145441.jpg);
+    background-image: url(../Images/IMG_20190402_145441.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -185,7 +185,7 @@ h2{
 }
 
 .b2{
-    background-image: url(../Images/sadel/IMG_20190402_145334.jpg);
+    background-image: url(../Images/IMG_20190402_145334.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -194,7 +194,7 @@ h2{
 }
 
 .b3{
-    background-image: url(../Images/sadel/IMG_20190402_145406.jpg);
+    background-image: url(../Images/IMG_20190402_145406.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -203,7 +203,7 @@ h2{
 }
 
 .b4{
-    background-image: url(../Images/sadel/IMG_20190402_145422.jpg);
+    background-image: url(../Images/IMG_20190402_145422.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -212,7 +212,7 @@ h2{
 }
 
 .b5{
-    background-image: url(../Images/sadel/IMG_20190402_145427.jpg);
+    background-image: url(../Images/IMG_20190402_145427.jpg);
     background-size: contain;
     height: 40vh;
     width: 100%;
@@ -283,6 +283,19 @@ button{
 
 #vidContainer{
     grid-area: vid;
+    position: relative; 
+    width: 100%; 
+    padding-top: 56.25%; 
+    height: 0; 
+}
+
+#vidContainer iframe{
+    padding: 10vh;
+    position: absolute; 
+    top:0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; 
 }
 
 footer{
@@ -366,6 +379,21 @@ footer{
                              "d3"
                              "vid"
                              "feet"
+        ;
+    }
+
+    #vidContainer iframe{
+        padding: 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #smallGrid{
+        height: auto;
+        grid-template-columns: 100%;
+        grid-template-rows: 40vh auto;
+        grid-template-areas: "imgs"
+                            "imgs1Info"
         ;
     }
 }
