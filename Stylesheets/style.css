@@ -11,6 +11,7 @@ html, body{
     /*background: linear-gradient(to right, #07a041, 35%, #43dd7e);*/
 }
 
+/*Triangels: */
 #triangle1{
     position: absolute;
     top: 110vh;
@@ -22,7 +23,6 @@ html, body{
     border-bottom: 30px solid transparent;
 }
 
-/*Triangels: */
 #triangle2{
     position: relative;
     left: calc(100% - 40px);
