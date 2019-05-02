@@ -36,17 +36,6 @@ html, body{
 }
 
 #triangle3{
-    position: absolute;
-    top: 110vh;
-    width: 0;
-    height: 0;
-    border-top: 30px solid #37d172;
-    border-left: 30px solid #37d172;
-    border-right: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-}
-
-#triangle3{
     position: relative;
     top: calc(10vh - 40px);
     width: 0;
