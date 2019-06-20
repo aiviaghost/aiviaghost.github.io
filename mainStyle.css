@@ -1,0 +1,56 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+#landingPage{
+    width: 100vw;
+    height: 100vh;
+}
+
+#sidePanel{
+    background: #000000 linear-gradient(to bottom,#ad5389,#3c1053);
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+#sidePanel > p{
+    color: white;
+    text-align: center;
+    line-height: 100vh;
+    vertical-align: middle;
+    font-size: 2em;
+}
+
+#backdrop{
+    background-color: rgba(0, 0, 0, 0.45);
+    width: 70%;
+    height: 100%;
+}
+
+#sites{
+    background-color: #3c1053;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: center;
+    padding: 10vw;
+}
+
+.site{
+    height: 15vh;
+    width: 20vw;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 15vh;
+    vertical-align: middle;
+    margin: 1em;
+    flex: auto;
+}
