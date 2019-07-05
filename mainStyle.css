@@ -5,34 +5,62 @@
     overflow-x: hidden;
 }
 
-#landingPage{
-    width: 100vw;
-    height: 100vh;
+.hidden{
+    position: absolute;
+    left: -20000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 #sidePanel{
-    background: #000000 linear-gradient(to bottom,#ad5389,#3c1053);
-    width: 30%;
-    height: 100%;
-    float: left;
+    position: absolute;
+    background: linear-gradient(to bottom,#000,#ffdf1c);
+    width: 30vw;
+    height: 100vh;
+    padding: 42vh 5em 0 5em;
 }
 
 #sidePanel > p{
     color: white;
     text-align: center;
-    line-height: 100vh;
     vertical-align: middle;
-    font-size: 2em;
+    font-size: 1.8em;
+}
+
+button, input[type="submit"], input[type="reset"] {  /*This is pretty very nice, mmmmhhhh*/
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#btnSlider{
+    position: absolute;
+    top: calc(50% - 3em);
+    left: calc(30vw - 3em);
+    border-radius: 100%;
+    width: 6em;
+    height: 6em;
+    background-color: lightgrey;
 }
 
 #backdrop{
-    background-color: rgba(0, 0, 0, 0.45);
-    width: 70%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    background: url(coffee.jpeg), #fffc19;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 35%;
+    background-blend-mode: darken;
 }
 
 #sites{
-    background-color: #3c1053;
+    background-color: #ffdf1c;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -46,11 +74,30 @@
 .site{
     height: 15vh;
     width: 20vw;
-    background-color: black;
+    background-color: #8fc93a;
     color: white;
     text-align: center;
     line-height: 15vh;
     vertical-align: middle;
     margin: 1em;
     flex: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 600px){
+    #sidePanel{
+        position: initial;
+        width: 100%;
+    }
+
+    #btnSlider{
+        display: none;
+    }
+    
+    #backdrop{
+        display: none;
+    }
 }
