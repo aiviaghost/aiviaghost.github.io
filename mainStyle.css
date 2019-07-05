@@ -16,10 +16,11 @@
 
 #sidePanel{
     position: absolute;
-    background: linear-gradient(to bottom,#000,#ffdf1c);
-    width: 30vw;
+    background: url(coffee.jpeg);
+    width: 47vw;
     height: 100vh;
-    padding: 42vh 5em 0 5em;
+    background-size: calc(100vw - 17px) 100vh;
+    border-right: 10px solid #2ec64abd;
 }
 
 #sidePanel > p{
@@ -41,21 +42,20 @@ button, input[type="submit"], input[type="reset"] {  /*This is pretty very nice,
 
 #btnSlider{
     position: absolute;
-    top: calc(50% - 3em);
-    left: calc(30vw - 3em);
+    top: 80%;
+    left: calc(47vw - 3em - 5px);
     border-radius: 100%;
     width: 6em;
     height: 6em;
-    background-color: lightgrey;
+    background: #2ec64a;
 }
 
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(coffee.jpeg), #fffc19;
+    background: url(coffee.jpeg), #2ec64abd;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 35%;
+    background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;
 }
 
