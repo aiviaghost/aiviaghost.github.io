@@ -20,7 +20,7 @@
     width: 47vw;
     height: 100vh;
     background-size: calc(100vw - 17px) 100vh;
-    border-right: 10px solid #2ec64abd;
+    border-right: 10px solid #f900ffbd;
 }
 
 #sidePanel > p{
@@ -30,7 +30,14 @@
     font-size: 1.8em;
 }
 
-button, input[type="submit"], input[type="reset"] {  /*This is pretty very nice, mmmmhhhh*/
+/*
+*This is pretty very nice, hmmmm
+*Maybe I should investigate what it actually does
+*Nah
+*Still maybe
+*It be nice though
+*/
+button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
 	border: none;
@@ -47,13 +54,18 @@ button, input[type="submit"], input[type="reset"] {  /*This is pretty very nice,
     border-radius: 100%;
     width: 6em;
     height: 6em;
-    background: #2ec64a;
+    background: #bc00c0;
+    cursor: grab;
+}
+
+#btnSlider:active{
+    cursor: grabbing;
 }
 
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(coffee.jpeg), #2ec64abd;
+    background: url(coffee.jpeg), #f900ffbd;
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;

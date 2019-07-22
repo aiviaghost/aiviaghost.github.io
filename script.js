@@ -4,10 +4,14 @@ let btnDown = false;
 
 function isDown(){
     btnDown = true;
+    document.getElementById("sidePanel").style.cursor = "grabbing";  //Might replace with querySelectorAll
+    document.getElementById("backdrop").style.cursor = "grabbing";
 }
 
 function isUp(){
     btnDown = false;
+    document.getElementById("sidePanel").style.cursor = "default";
+    document.getElementById("backdrop").style.cursor = "default";
 }
 
 slider.addEventListener('mousedown', isDown);
