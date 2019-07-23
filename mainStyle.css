@@ -16,7 +16,7 @@
 
 #sidePanel{
     position: absolute;
-    background: url(coffee.jpeg);
+    background: url(tinyCity.jpg);
     width: 47vw;
     height: 100vh;
     background-size: calc(100vw - 17px) 100vh;
@@ -65,7 +65,7 @@ button, input[type="submit"], input[type="reset"] {
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(coffee.jpeg), #f900ffbd;
+    background: url(tinyCity.jpg), #f900ffbd;
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;
