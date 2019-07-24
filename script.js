@@ -1,3 +1,18 @@
+let header = "Aiviaghost";
+let x = 0;
+let speedz = 150;
+
+function typewriter(){
+    if(x < header.length){
+        document.getElementById("wack").innerHTML += header.charAt(x);
+        document.getElementById("wack2").innerHTML += header.charAt(x);
+        x++;
+        setTimeout(typewriter, speedz);
+    }
+}
+window.addEventListener('DOMContentLoaded', typewriter);
+
+
 let slider = document.getElementById("btnSlider");
 let sp = document.getElementById("sidePanel");
 let btnDown = false;
