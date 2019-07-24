@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-display: fallback;
 }
 
 html, body{
@@ -75,7 +76,6 @@ header{
     top: 40vh;
     font-size: 3.7em;
     font-family: 'Encode Sans Expanded', 'Arial', sans-serif;
-    font-display: fallback;
     color: white;
 }
 
@@ -85,7 +85,6 @@ header{
     font-size: 1.2em;
     color: white;
     font-family: 'Encode Sans Expanded', 'Arial', sans-serif;
-    font-display: fallback;
 }
 
 .parallax{
@@ -150,7 +149,7 @@ header{
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: space-evenly;
-    font-family: 'Encode Sans Expanded', sans-serif;
+    font-family: 'Encode Sans Expanded', 'Arial', sans-serif;
 }
 
 .f1Sec{
@@ -236,7 +235,7 @@ button{
     word-wrap: break-word;
     margin: 2em;
     padding: 1em;
-    font-family: 'Encode Sans Expanded', sans-serif;
+    font-family: 'Encode Sans Expanded', 'Arial', sans-serif;
 }
 
 #specsH2{
