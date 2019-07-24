@@ -10,7 +10,7 @@ function typewriter(){
         setTimeout(typewriter, speedz);
     }
 }
-window.addEventListener('DOMContentLoaded', typewriter);
+window.addEventListener('load', typewriter);
 
 
 let slider = document.getElementById("btnSlider");
