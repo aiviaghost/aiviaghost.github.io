@@ -20,14 +20,22 @@
     width: 47vw;
     height: 100vh;
     background-size: calc(100vw - 17px) 100vh;
-    border-right: 10px solid #f900ffbd;
+    border-right: 5px solid #f900ffbd;
 }
 
-#sidePanel > p{
-    color: white;
+.wackos{
+    width: 100vw;
+    height: 100vh;
     text-align: center;
+    line-height: 100vh;
     vertical-align: middle;
-    font-size: 1.8em;
+    font-size: 9em;
+    font-weight: bolder;
+}
+
+#wack{
+    position: absolute;
+    color: #fb00ff;
 }
 
 /*
@@ -50,7 +58,7 @@ button, input[type="submit"], input[type="reset"] {
 #btnSlider{
     position: absolute;
     top: 80%;
-    left: calc(47vw - 3em - 5px);
+    left: calc(50vw - 3em - 2.5px);
     border-radius: 100%;
     width: 6em;
     height: 6em;
@@ -65,10 +73,14 @@ button, input[type="submit"], input[type="reset"] {
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(tinyCity.jpg), #f900ffbd;
+    background: url(tinyCity.jpg), #ff00bf; /*#f900ffbd*/
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;
+}
+
+#wack2{
+    color: white;
 }
 
 #sites{
