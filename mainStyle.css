@@ -18,7 +18,7 @@
     overflow: hidden;
 }
 
-#sidePanel{
+#overlay{
     position: absolute;
     background: url(tinyCity.jpg);
     width: 50vw;
