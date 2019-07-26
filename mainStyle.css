@@ -1,3 +1,7 @@
+:root{
+    --spColor: #6699CC;
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -20,7 +24,7 @@
     width: 50vw;
     height: 100vh;
     background-size: calc(100vw - 17px) 100vh;
-    border-right: 5px solid #f900ffbd;
+    border-right: 5px solid var(--spColor);
 }
 
 .wackos{
@@ -35,7 +39,7 @@
 
 #wack{
     position: absolute;
-    color: #fb00ff;
+    color: var(--spColor);
 }
 
 /*
@@ -62,7 +66,7 @@ button, input[type="submit"], input[type="reset"] {
     border-radius: 100%;
     width: 6em;
     height: 6em;
-    background: #bc00c0;
+    background: var(--spColor);
     cursor: grab;
 }
 
@@ -73,7 +77,7 @@ button, input[type="submit"], input[type="reset"] {
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(tinyCity.jpg), #ff00bf; /*#f900ffbd*/
+    background: url(tinyCity.jpg), var(--spColor); /*#f900ffbd*/
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;
@@ -84,7 +88,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #sites{
-    background-color: #ffdf1c;
+    background-color: var(--spColor);
     width: 100vw;
     height: 100vh;
     display: flex;
