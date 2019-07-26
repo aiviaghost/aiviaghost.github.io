@@ -64,3 +64,43 @@ for(let x = 0; x < 6; x++){
     hexcode += hex[rand];
 }
 document.documentElement.style.setProperty('--spColor', hexcode);
+
+let hexcode1 = "#";
+for(let j = 1; j < 7; j++){
+    hexcode1 += convert(15 - convert(hexcode.charAt(j)));
+}
+let sites = document.getElementsByClassName("site");
+for(let k = 0; k < sites.length; k++){
+    sites[k].style.backgroundColor = hexcode1;
+}
+
+function convert(c){
+    switch(c){
+        case "a":
+            return 10;
+        case 10:
+            return "a";
+        case "b":
+            return 11;
+        case 11:
+            return "b";
+        case "c":
+            return 12;
+        case 12:
+            return "c";
+        case "d":
+            return 13;
+        case 13:
+            return "d";
+        case "e":
+            return 14;
+        case 14:
+            return "e";
+        case "f":
+            return 15;
+        case 15:
+            return "f";
+        default:
+            return c;
+    }
+}
