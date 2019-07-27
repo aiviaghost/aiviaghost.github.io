@@ -132,7 +132,7 @@ function sRGB(hex){
 
 let lumA = brightness("#ffffff");
 let lumB = brightness(hexcode2);
-let color = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) > 4 ? "white" : "black";
+let color = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) > 3 ? "white" : "black";
 
 console.log(brightness("#ffffff"));
 console.log(brightness(hexcode2));
