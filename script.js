@@ -111,7 +111,7 @@ function convert(c){
 /*
 * This code sets color of the text on elements with the class "site"
 * This is done by calculating the contrast between the background color and the text color
-* If the contrast is 4:1 or greater then the text color is set to white otherwise it is set to black
+* If the contrast is 3:1 or greater then the text color is set to white otherwise it is set to black
 */
 function brightness(hexcode){
     let r = sRGB(hexcode.substr(1, 2)) / 255.0;
@@ -132,7 +132,7 @@ function sRGB(hex){
 
 let lumA = brightness("#ffffff");
 let lumB = brightness(hexcode2);
-let color = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) > 3 ? "white" : "black";
+let color = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) >= 3 ? "white" : "black";
 
 console.log(brightness("#ffffff"));
 console.log(brightness(hexcode2));
