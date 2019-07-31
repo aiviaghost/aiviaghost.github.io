@@ -144,11 +144,11 @@ function sRGB(hex){
 
 console.log(lumA);
 console.log(lumB);
-console.log(((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05));
+console.log(Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
 
 let lumA = relativeLuminance("#ffffff");
 let lumB = relativeLuminance(hexcode2);
-let textColor = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) >= 3 ? "white" : "black";
+let textColor = (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05) >= 3 ? "white" : "black";
 
 for(let k = 0; k < sites.length; k++){
     sites[k].style.color = textColor;
