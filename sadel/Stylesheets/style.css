@@ -150,6 +150,7 @@ header{
     align-items: stretch;
     justify-content: space-evenly;
     font-family: 'Encode Sans Expanded', 'Arial', sans-serif;
+    word-wrap: break-word;
 }
 
 .f1Sec{
