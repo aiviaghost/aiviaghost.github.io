@@ -149,4 +149,6 @@ function relativeLuminance(hexcode){
 }
 
 //This is not an intellectual function
-sRGB = hex => parseInt(hex, 16);
+function sRGB(hex){
+    return parseInt(hex, 16);
+}
