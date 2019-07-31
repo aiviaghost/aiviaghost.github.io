@@ -138,17 +138,15 @@ function relativeLuminance(hexcode){
 }
 
 //This is not an intellectual function
-function sRGB(hex){
-    return parseInt(hex, 16);
-}
+sRGB = hex => parseInt(hex, 16);
+
+var lumA = relativeLuminance("#ffffff");
+var lumB = relativeLuminance(hexcode2);
+let textColor = (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05) > 3 ? "white" : "black";
 
 console.log(lumA);
 console.log(lumB);
-console.log(Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
-
-let lumA = relativeLuminance("#ffffff");
-let lumB = relativeLuminance(hexcode2);
-let textColor = (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05) >= 3 ? "white" : "black";
+console.log((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05));
 
 for(let k = 0; k < sites.length; k++){
     sites[k].style.color = textColor;
