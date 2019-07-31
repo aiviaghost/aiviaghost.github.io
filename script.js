@@ -58,13 +58,14 @@ document.addEventListener('mousemove', e => {
 * The string generated is assigned to the custom property "--spColor"
 * A complimentary color is picked for the backgrounds of the ".site" elements
 * The complimentary color is calculated by picking a number via the formula:
-* 15 - (char in "hexcode1") = (new char for "hexcode2")
+* 15 - (char in "hexcode1") = (new char for "hexcode2") 
+* I.e "#00ff00" -> "#ff00ff"
 */
-let hex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e","f"];
+let hexadecimal = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e","f"];
 let hexcode1 = "#";
-for(let x = 0; x < 6; x++){
+for(let i = 0; i < 6; i++){
     let rand = Math.floor(Math.random()*16);
-    hexcode1 += hex[rand];
+    hexcode1 += hexadecimal[rand];
 }
 document.documentElement.style.setProperty('--spColor', hexcode1);
 
@@ -72,11 +73,14 @@ let hexcode2 = "#";
 for(let j = 1; j < 7; j++){
     hexcode2 += convert(15 - convert(hexcode1.charAt(j)));
 }
+
 let sites = document.getElementsByClassName("site");
+
 for(let k = 0; k < sites.length; k++){
     sites[k].style.backgroundColor = hexcode2;
 }
 
+//One could use parseInt(c, 16) but then one would not be an intellectual
 function convert(c){
     switch(c){
         case "a":
@@ -112,8 +116,15 @@ function convert(c){
 * This code sets color of the text on elements with the class "site"
 * This is done by calculating the contrast between the background color and the text color
 * If the contrast is 3:1 or greater then the text color is set to white otherwise it is set to black
+* I would not recommend this approach but hey it works so it is good enough :ok_hand:
+*
+* + WTF these calcs come from?
+* They come from here: 
+* https://www.w3.org/TR/WCAG20/?source=post_page---------------------------#relativeluminancedef
+* and https://en.wikipedia.org/wiki/SRGB#The_reverse_transformation
+* But they still wacky
 */
-function brightness(hexcode){
+function relativeLuminance(hexcode){
     let r = sRGB(hexcode.substr(1, 2)) / 255.0;
     r = (r <= 0.03928) ? r/12.92 : Math.pow(((r + 0.055) / 1.055), 2.4);
 
@@ -126,18 +137,19 @@ function brightness(hexcode){
     return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
+//This is not an intellectual function
 function sRGB(hex){
     return parseInt(hex, 16);
 }
 
-let lumA = brightness("#ffffff");
-let lumB = brightness(hexcode2);
-let color = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) >= 3 ? "white" : "black";
+console.log(lumA);
+console.log(lumB);
+console.log(((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05));
 
-console.log(brightness("#ffffff"));
-console.log(brightness(hexcode2));
-console.log((brightness("#ffffff") + 0.05) / (brightness(hexcode2) + 0.05));
+let lumA = relativeLuminance("#ffffff");
+let lumB = relativeLuminance(hexcode2);
+let textColor = ((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05)) >= 3 ? "white" : "black";
 
 for(let k = 0; k < sites.length; k++){
-    sites[k].style.color = color;
+    sites[k].style.color = textColor;
 }
