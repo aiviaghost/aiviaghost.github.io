@@ -56,10 +56,6 @@ document.addEventListener('mousemove', e => {
 * This code sets a randomized color as the primary color of the webpage
 * It creates a hexcode by picking 6 characters from a list of 16 characters
 * The string generated is assigned to the custom property "--spColor"
-* A complimentary color is picked for the backgrounds of the ".site" elements
-* The complimentary color is calculated by picking a number via the formula:
-* 15 - (char in "hexcode1") = (new char for "hexcode2") 
-* I.e "#00ff00" -> "#ff00ff"
 */
 let hexadecimal = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e","f"];
 let hexcode1 = "#";
@@ -69,15 +65,35 @@ for(let i = 0; i < 6; i++){
 }
 document.documentElement.style.setProperty('--spColor', hexcode1);
 
+
+/*
+* A complimentary color is picked for the backgrounds of the ".site" elements
+* The complimentary color is calculated via the formula:
+* 15 - (char in "hexcode1") = (new char for "hexcode2") 
+* I.e "#00ff00" -> "#ff00ff"
+*/
 let hexcode2 = "#";
 for(let j = 1; j < 7; j++){
     hexcode2 += convert(15 - convert(hexcode1.charAt(j)));
 }
 
-let sites = document.getElementsByClassName("site");
+/*
+* This code sets color of the text on elements with the class "site"
+* This is done by calculating the contrast between the background color and the text color
+* If the contrast is 3:1 or greater then the text color is set to white otherwise it is set to black
+*/
+let lumA = relativeLuminance("#ffffff");
+let lumB = relativeLuminance(hexcode2);
+let textColor = (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05) >= 3 ? "white" : "black";
 
+console.log(lumA);
+console.log(lumB);
+console.log((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05));
+
+let sites = document.getElementsByClassName("site");
 for(let k = 0; k < sites.length; k++){
     sites[k].style.backgroundColor = hexcode2;
+    sites[k].style.color = textColor;
 }
 
 //One could use parseInt(c, 16) but then one would not be an intellectual
@@ -113,12 +129,7 @@ function convert(c){
 }
 
 /*
-* This code sets color of the text on elements with the class "site"
-* This is done by calculating the contrast between the background color and the text color
-* If the contrast is 3:1 or greater then the text color is set to white otherwise it is set to black
-* I would not recommend this approach but hey it works so it is good enough :ok_hand:
-*
-* + WTF these calcs come from?
+* Where these calcs come from?
 * They come from here: 
 * https://www.w3.org/TR/WCAG20/?source=post_page---------------------------#relativeluminancedef
 * and https://en.wikipedia.org/wiki/SRGB#The_reverse_transformation
@@ -139,15 +150,3 @@ function relativeLuminance(hexcode){
 
 //This is not an intellectual function
 sRGB = hex => parseInt(hex, 16);
-
-var lumA = relativeLuminance("#ffffff");
-var lumB = relativeLuminance(hexcode2);
-let textColor = (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05) > 3 ? "white" : "black";
-
-console.log(lumA);
-console.log(lumB);
-console.log((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05));
-
-for(let k = 0; k < sites.length; k++){
-    sites[k].style.color = textColor;
-}
