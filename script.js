@@ -55,7 +55,7 @@ document.addEventListener('mousemove', e => {
 /* 
 * This code sets a randomized color as the primary color of the webpage
 * It creates a hexcode by picking 6 characters from a list of 16 characters
-* The string generated is assigned to the custom property "--spColor"
+* The string generated is assigned to the custom property "--mainColor"
 */
 let hexadecimal = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e","f"];
 let hexcode1 = "#";
@@ -63,7 +63,7 @@ for(let i = 0; i < 6; i++){
     let rand = Math.floor(Math.random()*16);
     hexcode1 += hexadecimal[rand];
 }
-document.documentElement.style.setProperty('--spColor', hexcode1);
+document.documentElement.style.setProperty('--mainColor', hexcode1);
 
 
 /*
@@ -76,6 +76,7 @@ let hexcode2 = "#";
 for(let j = 1; j < 7; j++){
     hexcode2 += convert(15 - convert(hexcode1.charAt(j)));
 }
+document.documentElement.style.setProperty('--compColor', hexcode2);
 
 /*
 * This code sets color of the text on elements with the class "site"
@@ -92,7 +93,6 @@ console.log((Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05));
 
 let sites = document.getElementsByClassName("site");
 for(let k = 0; k < sites.length; k++){
-    sites[k].style.backgroundColor = hexcode2;
     sites[k].style.color = textColor;
 }
 

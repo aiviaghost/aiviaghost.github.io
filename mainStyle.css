@@ -1,5 +1,6 @@
 :root{
-    --spColor: #6699CC;
+    --mainColor: #6699CC;
+    --compColor: #8fc93a;
 }
 
 *{
@@ -24,7 +25,7 @@
     width: 50vw;
     height: 100vh;
     background-size: calc(100vw - 17px) 100vh;
-    border-right: 5px solid var(--spColor);
+    border-right: 5px solid var(--mainColor);
 }
 
 .wackos{
@@ -39,7 +40,7 @@
 
 #wack1{
     position: absolute;
-    color: var(--spColor);
+    color: var(--mainColor);
 }
 
 /*
@@ -66,8 +67,36 @@ button, input[type="submit"], input[type="reset"] {
     border-radius: 100%;
     width: 6em;
     height: 6em;
-    background: var(--spColor);
+    background: var(--mainColor);
     cursor: grab;
+}
+
+#btnSlider::before{
+    position: absolute;
+    display: block;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid transparent;
+    border-right: 20px var(--compColor) solid;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+    top: 30%;
+    right: calc(50% + 15px);
+}
+
+#btnSlider::after{
+    position: absolute;
+    display: block;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid var(--compColor);
+    top: 30%;
+    left: calc(50% + 15px);
 }
 
 #btnSlider:active{
@@ -77,7 +106,7 @@ button, input[type="submit"], input[type="reset"] {
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(tinyCity.jpg), var(--spColor); /*#f900ffbd*/
+    background: url(tinyCity.jpg), var(--mainColor); /*#f900ffbd*/
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;
@@ -88,7 +117,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #sites{
-    background-color: var(--spColor);
+    background-color: var(--mainColor);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -102,7 +131,7 @@ button, input[type="submit"], input[type="reset"] {
 .site{
     height: 15vh;
     width: 20vw;
-    background-color: #8fc93a;
+    background-color: var(--compColor);
     color: white;
     text-align: center;
     line-height: 15vh;
