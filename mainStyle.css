@@ -22,14 +22,14 @@
 
 #burger{
     position: fixed;
-    width: 4vw;
-    height: 4vw;
+    width: 5vw;
+    height: 5vw;
     z-index: 2;
 }
 
 .slice{
-    width: 3vw;
-    height: 0.5vw;
+    width: 4vw;
+    height: 0.6vw;
     margin: auto;
     border-radius: 5px;
     background-color: white;
