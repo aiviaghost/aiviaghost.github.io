@@ -1,42 +1,58 @@
 <!DOCTYPE html>
-<html lang="sv-se">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="utf-8">
-        <meta name="Description" content="This site is a collection of wacky websites that I have made. Some of them may peak your curiosity.">
-        <title>Aiviaghost</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="mainStyle.css">
-    </head>
-    <body>
-        <div id="overlay">
-            <header id="wack1" class="wackos"></header>
-            <p class="hidden">Latte art</p>
-        </div>
-        
-        <button id="btnSlider">
-            <p class="hidden">Slider</p>
-        </button>
-
-        <div id="backdrop">
-            <header id="wack2" class="wackos"></header>
-            <p class="hidden">Latte art, purple blend mode</p>
-        </div>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="Description" content="This site is a collection of wacky websites that I have made. Some of them may peak your curiosity.">
+    <title>Aiviaghost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="mainStyle.css">
+</head>
+<body>
+    <button id="burger">
+        <div id="s1" class="slice"></div>
+        <div id="s2" class="slice"></div>
+        <div id="s3" class="slice"></div>
+        <div id="s4" class="slice"></div>
+        <div id="s5" class="slice"></div>
+        <p class="hidden">Click to view navigation bar</p>
+    </button>
+    <aside>
+        <h1>Navigation:</h1>
+        <ul>
+            <a href="#backdrop"><li>Startpage</li></a>
+            <a href="#sites"><li>Sites</li></a>
+        </ul>
+    </aside>
     
-        <div id="sites">
-            <a href="sadel/index.html">
-                <div class="site">
-                    <p>Sadel</p>
-                </div>
-            </a>
+    <div id="overlay">
+        <header id="wack1" class="wackos"></header>
+        <p class="hidden">Latte art</p>
+    </div>
+    
+    <button id="btnSlider">
+        <p class="hidden">Slider</p>
+    </button>
+    
+    <div id="backdrop">
+        <header id="wack2" class="wackos"></header>
+        <p class="hidden">Latte art, purple blend mode</p>
+    </div>
+    
+    <div id="sites">
+        <a href="sadel/index.html">
+            <div class="site">
+                <p>Sadel</p>
+            </div>
+        </a>
         
-            <div class="site"><p>Taco!</p></div>
+        <div class="site"><p>Taco!</p></div>
         
-            <div class="site"><p>Wacko!</p></div>
+        <div class="site"><p>Wacko!</p></div>
         
-            <div class="site"><p>Taco!</p></div>
-
-            <script src="script.js"></script> 
-        </div>
-    </body>
+        <div class="site"><p>Taco!</p></div>
+        
+        <script src="script.js"></script> 
+    </div>
+</body>
 </html>

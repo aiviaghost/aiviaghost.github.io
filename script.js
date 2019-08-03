@@ -152,3 +152,21 @@ function relativeLuminance(hexcode){
 function sRGB(hex){
     return parseInt(hex, 16);
 }
+
+
+/*
+* Burger code :ok_hand:
+*/
+let burgerCount = 0;
+let burger = document.getElementById("burger");
+let aside = document.getElementsByTagName("aside")[0];
+
+burger.addEventListener('mousedown', () => {
+    if(burgerCount % 2 === 0){
+        aside.style.left = 0 + "px";
+    }
+    else{
+        aside.style.left = -0.25 * window.innerWidth + "px";
+    }
+    burgerCount++;
+});

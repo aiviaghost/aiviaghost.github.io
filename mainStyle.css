@@ -8,6 +8,7 @@
     padding: 0px;
     box-sizing: border-box;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .hidden{
@@ -17,6 +18,71 @@
     width: 1px;
     height: 1px;
     overflow: hidden;
+}
+
+#burger{
+    position: fixed;
+    width: 4vw;
+    height: 4vw;
+    z-index: 2;
+}
+
+.slice{
+    width: 3vw;
+    height: 0.5vw;
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#s1{
+    background-color: #f3c477;
+}
+
+#s2{
+    background-color: #f6b80d;
+}
+
+#s3{
+    background-color: #4f1c0d;
+}
+
+#s4{
+    background-color: #9aa413;
+}
+
+#s5{
+    background-color: #f3c477;
+}
+
+aside{
+    position: fixed;
+    width: 25vw;
+    height: 100vh;
+    left: -25vw;
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+h1{
+    color: white;
+    font-size: 2.5em;
+    margin-top: 4vw;
+    margin-bottom: 1em;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+li{
+    list-style: none;
+    font-size: 1.5em;
+    margin-bottom: 1em;
 }
 
 #overlay{
@@ -139,10 +205,6 @@ button, input[type="submit"], input[type="reset"] {
     margin: 1em;
     flex: auto;
     font-size: 1.5em;
-}
-
-a{
-    text-decoration: none;
 }
 
 @media screen and (max-width: 600px){
