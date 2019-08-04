@@ -20,6 +20,23 @@
     overflow: hidden;
 }
 
+/*
+*This is pretty very nice, hmmmm
+*Maybe I should investigate what it actually does
+*Nah
+*Still maybe
+*It be nice though
+*/
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 #burger{
     position: fixed;
     width: 5vw;
@@ -57,9 +74,9 @@
 
 aside{
     position: fixed;
-    width: 25vw;
+    width: 22vw;
     height: 100vh;
-    left: -25vw;
+    left: -22vw;
     padding: 2em;
     background-color: rgba(0, 0, 0, 0.85);
     z-index: 1;
@@ -67,16 +84,13 @@ aside{
     transition: all 0.5s;
 }
 
-h1{
-    color: white;
-    font-size: 2.5em;
-    margin-top: 4vw;
-    margin-bottom: 1em;
-}
-
 a{
     text-decoration: none;
     color: white;
+}
+
+ul{
+    margin-top: 5vw;
 }
 
 li{
@@ -107,23 +121,6 @@ li{
 #wack1{
     position: absolute;
     color: var(--mainColor);
-}
-
-/*
-*This is pretty very nice, hmmmm
-*Maybe I should investigate what it actually does
-*Nah
-*Still maybe
-*It be nice though
-*/
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
 }
 
 #btnSlider{
