@@ -17,3 +17,20 @@ graphInput.addEventListener('blur', () => {
         graphInput.value = "ex. x^2 + 3x + 1";
     }
 })
+
+
+let controls = document.getElementById("controls");
+let slider = document.getElementById("slider");
+let btnPressed = false;
+
+slider.addEventListener('mousedown', () => btnPressed = true);
+
+document.addEventListener('mouseup', () => btnPressed = false);
+
+document.addEventListener('mousemove', e => {
+    let controlsWidth = controls.offsetWidth + e.movementX;
+    if(btnPressed && (controlsWidth >= 0.2 * window.innerWidth) && (controlsWidth <= window.innerWidth)){
+        controls.style.width = controlsWidth + "px";
+        slider.style.left = slider.offsetLeft + e.movementX + "px";
+    }
+})
