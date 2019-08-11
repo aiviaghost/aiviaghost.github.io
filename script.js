@@ -3,7 +3,7 @@
 * The effect begins 500ms after the page has loaded fully
 * Then the string is typed one letter at a time, 150ms between each letter
 */
-setTimeout(typewriter, 500);
+window.addEventListener('load', () => setTimeout(typewriter, 500));
 
 let header = "Aiviaghost";
 let x = 0;
