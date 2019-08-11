@@ -1,3 +1,6 @@
+/*
+* This code validates the user input for the graph
+*/
 let graphInput = document.getElementById("graphInput");
 graphInput.value = "ex. x^2 + 3x + 1";
 
@@ -18,7 +21,9 @@ graphInput.addEventListener('blur', () => {
     }
 })
 
-
+/*
+* This code implements the ability to resize the width of the "controls"
+*/
 let controls = document.getElementById("controls");
 let slider = document.getElementById("slider");
 let btnPressed = false;

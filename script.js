@@ -3,9 +3,7 @@
 * The effect begins 500ms after the page has loaded fully
 * Then the string is typed one letter at a time, 150ms between each letter
 */
-function waitUntilThePageIsFullyLoadedThenDisplayTheText(){
-    setTimeout(typewriter, 500);
-}
+setTimeout(typewriter, 500);
 
 let header = "Aiviaghost";
 let x = 0;
@@ -17,7 +15,6 @@ function typewriter(){
         setTimeout(typewriter, 150);
     }
 }
-window.addEventListener('load', waitUntilThePageIsFullyLoadedThenDisplayTheText);
 
 
 /*
@@ -28,20 +25,17 @@ let slider = document.getElementById("btnSlider");
 let sp = document.getElementById("overlay");
 let btnDown = false;
 
-function isDown(){
+slider.addEventListener('mousedown', () => {
     btnDown = true;
     document.getElementById("overlay").style.cursor = "grabbing";
     document.getElementById("backdrop").style.cursor = "grabbing";
-}
+})
 
-function isUp(){
+document.addEventListener('mouseup', () => {
     btnDown = false;
     document.getElementById("overlay").style.cursor = "default";
     document.getElementById("backdrop").style.cursor = "default";
-}
-
-slider.addEventListener('mousedown', isDown);
-document.addEventListener('mouseup', isUp);
+})
 
 document.addEventListener('mousemove', e => {
     let spWidth = sp.offsetWidth + e.movementX;

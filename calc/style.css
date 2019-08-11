@@ -6,6 +6,15 @@
     border: 0;
 }
 
+.hidden{
+    position: absolute;
+    left: -20000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 #container{
     width: 100vw;
     height: 100vh;
@@ -53,6 +62,7 @@ button{ /*reset*/
 }
 
 #slider{
+    z-index: 1;
     position: absolute;
     width: 1vw;
     height: 100vh;
