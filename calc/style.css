@@ -61,6 +61,33 @@ button{ /*reset*/
     outline: inherit;
 }
 
+#warning{
+    width: 5vh;
+    height: 5vh;
+    position: relative;
+    top: -5vh;
+    left: 17.5vw;
+    overflow: hidden;
+    display: none;
+}
+
+#warning > div{
+    position: relative;
+    background: red;
+    width: 10%;
+    height: 70%;
+    left: 50%;
+}
+
+#cross1{
+    transform: rotate(45deg);
+}
+
+#cross2{
+    top: -70%;
+    transform: rotate(-45deg);
+}
+
 #slider{
     z-index: 1;
     position: absolute;
