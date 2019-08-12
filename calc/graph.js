@@ -3,7 +3,7 @@
 */
 let graphInput = document.getElementById("graphInput");
 let errorSymbol = document.getElementById("warning");
-graphInput.value = "ex. x^2 + 3x + 1";
+graphInput.value = "x^2 + 3x + 1";
 
 //RegEx is bae
 let regex = RegExp('[^0-9.x+\\-*/^() ]');
@@ -17,7 +17,7 @@ graphInput.addEventListener('focus', () => {
 graphInput.addEventListener('blur', () => {
     if(graphInput.value == ""){
         graphInput.style.color = "#b4b4b4";
-        graphInput.value = "ex. x^2 + 3x + 1";
+        graphInput.value = "x^2 + 3x + 1";
     }
     else if(regex.test(graphInput.value)){
         graphInput.style.borderColor = "red";
