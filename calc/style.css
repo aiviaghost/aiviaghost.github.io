@@ -79,11 +79,11 @@ button{ /*reset*/
     left: 50%;
 }
 
-#cross1{
+#warning > [a]{
     transform: rotate(45deg);
 }
 
-#cross2{
+#warning > [b]{
     top: -70%;
     transform: rotate(-45deg);
 }
