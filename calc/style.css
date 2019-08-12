@@ -88,6 +88,15 @@ button{ /*reset*/
     transform: rotate(-45deg);
 }
 
+#output{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4em;
+}
+
 #slider{
     z-index: 1;
     position: absolute;
