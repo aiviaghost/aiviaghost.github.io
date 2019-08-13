@@ -217,6 +217,16 @@ li{
 }
 
 @media screen and (max-width: 800px){
+    #burger{
+        width: 5em;
+        height: 5em;
+    }
+
+    .slice{
+        width: 4em;
+        height: 0.6em;
+    }
+
     #overlay{
         display: none;
     }
