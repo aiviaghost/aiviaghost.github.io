@@ -27,11 +27,10 @@
 *Still maybe
 *It be nice though
 */
-button, input[type="submit"], input[type="reset"] {
+button{
 	background: none;
 	color: inherit;
 	border: none;
-	padding: 0;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
@@ -155,7 +154,6 @@ li{
     border-top: 20px solid transparent;
     border-right: 20px var(--compColor) solid;
     border-bottom: 20px solid transparent;
-    border-left: 20px solid transparent;
     top: 30%;
     right: calc(50% + 15px);
 }
@@ -167,7 +165,6 @@ li{
     width: 0px;
     height: 0px;
     border-top: 20px solid transparent;
-    border-right: 20px solid transparent;
     border-bottom: 20px solid transparent;
     border-left: 20px solid var(--compColor);
     top: 30%;
@@ -181,7 +178,7 @@ li{
 #backdrop{
     width: 100vw;
     height: 100vh;
-    background: url(tinyCity.jpg), var(--mainColor); /*#f900ffbd*/
+    background: url(tinyCity.jpg), var(--mainColor);
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
     background-blend-mode: darken;
