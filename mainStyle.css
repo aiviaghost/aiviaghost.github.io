@@ -39,14 +39,14 @@ button, input[type="submit"], input[type="reset"] {
 
 #burger{
     position: fixed;
-    width: 5vw;
-    height: 5vw;
+    width: 4em;
+    height: 4em;
     z-index: 2;
 }
 
 .slice{
-    width: 4vw;
-    height: 0.6vw;
+    width: 3em;
+    height: 0.5em;
     margin: auto;
     border-radius: 5px;
     background-color: white;
