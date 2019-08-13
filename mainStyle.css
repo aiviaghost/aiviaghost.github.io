@@ -239,7 +239,7 @@ li{
     }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 400px){
     #mobileStartpage > header{
         font-size: 3em;
     }
