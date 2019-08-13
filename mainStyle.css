@@ -99,6 +99,18 @@ li{
     margin-bottom: 1em;
 }
 
+#mobileStartpage{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: var(--mainColor);
+}
+
+#mobileStartpage > header{
+    color: var(--compColor);
+    font-size: 5em;
+}
+
 #overlay{
     position: absolute;
     background: url(tinyCity.jpg);
@@ -204,10 +216,9 @@ li{
     font-size: 1.5em;
 }
 
-@media screen and (max-width: 600px){
-    #sidePanel{
-        position: initial;
-        width: 100%;
+@media screen and (max-width: 800px){
+    #overlay{
+        display: none;
     }
 
     #btnSlider{
@@ -216,5 +227,20 @@ li{
     
     #backdrop{
         display: none;
+    }
+
+    #mobileStartpage{
+        display: block;
+    }
+
+    aside{
+        width: 100vw;
+        left: -100vw;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #mobileStartpage > header{
+        font-size: 3em;
     }
 }

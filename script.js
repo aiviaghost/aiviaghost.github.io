@@ -160,7 +160,7 @@ burger.addEventListener('mousedown', () => {
         aside.style.left = 0 + "px";
     }
     else{
-        aside.style.left = -0.22 * window.innerWidth + "px";
+        aside.style.left = -aside.offsetWidth + "px";
     }
     burgerCount++;
 });
