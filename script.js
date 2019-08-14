@@ -173,10 +173,9 @@ burger.addEventListener('mousedown', () => {
 
         // top and bottom
         let scale = (window.innerWidth > 800) ? 0.6 : 0.5;
-        s1.style.transform = "rotate(45deg)";
         s1.style.top = (scale * 2 * 16) +"px";
-        s5.style.transform = "rotate(-45deg)";
         s5.style.top = -(scale * 2 * 16) +"px";
+        setTimeout(rotate, 500);
     }
     else{
         aside.style.left = -aside.offsetWidth + "px";
@@ -188,9 +187,18 @@ burger.addEventListener('mousedown', () => {
 
         // top and bottom
         s1.style.transform = "rotate(0)";
-        s1.style.top = "0%";
         s5.style.transform = "rotate(0)";
-        s5.style.top = "0%";
+        setTimeout(unRotate, 500);
     }
     burgerCount++;
 });
+
+function rotate(){
+    s1.style.transform = "rotate(45deg)";
+    s5.style.transform = "rotate(-45deg)";
+}
+
+function unRotate(){
+    s1.style.top = "0%";
+    s5.style.top = "0%";
+}
