@@ -44,11 +44,12 @@ button{
 }
 
 .slice{
+    position: relative;
+    left: 10%;
     width: 4em;
     height: 0.6em;
-    margin: auto;
     border-radius: 5px;
-    background-color: white;
+    transition: all 1s;
 }
 
 #s1{

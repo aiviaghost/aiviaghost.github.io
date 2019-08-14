@@ -151,16 +151,46 @@ function sRGB(hex){
 /*
 * Burger code :ok_hand:
 */
+
 let burgerCount = 0;
 let burger = document.getElementById("burger");
 let aside = document.getElementsByTagName("aside")[0];
+let middles = document.getElementsByClassName("middle");
+let s1 = document.getElementById("s1");
+let s2 = document.getElementById("s2");
+let s3 = document.getElementById("s3");
+let s4 = document.getElementById("s4");
+let s5 = document.getElementById("s5");
 
 burger.addEventListener('mousedown', () => {
     if(burgerCount % 2 === 0){
         aside.style.left = 0 + "px";
+
+        // middles
+        for(let i = 0; i < 3; i++){
+            middles[i].style.backgroundColor = "transparent";
+        }
+
+        // top and bottom
+        let scale = (window.innerWidth >= 800) ? 0.6 : 0.5;
+        s1.style.transform = "rotate(45deg)";
+        s1.style.top = (scale * 2 * 16) +"px";
+        s5.style.transform = "rotate(-45deg)";
+        s5.style.top = -(scale * 2 * 16) +"px";
     }
     else{
         aside.style.left = -aside.offsetWidth + "px";
+
+        // middles
+        s2.style.backgroundColor = "#f6b80d";
+        s3.style.backgroundColor = "#4f1c0d";
+        s4.style.backgroundColor = "#9aa413";
+
+        // top and bottom
+        s1.style.transform = "rotate(0)";
+        s1.style.top = "0%";
+        s5.style.transform = "rotate(0)";
+        s5.style.top = "0%";
     }
     burgerCount++;
 });
