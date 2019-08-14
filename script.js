@@ -186,7 +186,9 @@ burger.addEventListener('mousedown', () => {
         s4.style.backgroundColor = "#9aa413";
 
         // top and bottom
+        s1.style["-webkit-transition"] = "rotate(0)"
         s1.style.transform = "rotate(0)";
+        s5.style["-webkit-transition"] = "rotate(0)"
         s5.style.transform = "rotate(0)";
         setTimeout(unRotate, 500);
     }
@@ -194,7 +196,9 @@ burger.addEventListener('mousedown', () => {
 });
 
 function rotate(){
+    s1.style["-webkit-transition"] = "rotate(45deg)"
     s1.style.transform = "rotate(45deg)";
+    s5.style["-webkit-transition"] = "rotate(-45deg)"
     s5.style.transform = "rotate(-45deg)";
 }
 
