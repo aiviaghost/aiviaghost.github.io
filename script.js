@@ -186,20 +186,20 @@ burger.addEventListener('mousedown', () => {
         s4.style.backgroundColor = "#9aa413";
 
         // top and bottom
-        s1.style["-webkit-transform"] = "rotate(0)"
         s1.style.transform = "rotate(0)";
-        s5.style["-webkit-transform"] = "rotate(0)"
+        s1.style["-webkit-transform"] = "rotate(0)"
         s5.style.transform = "rotate(0)";
+        s5.style["-webkit-transform"] = "rotate(0)"
         setTimeout(unRotate, 500);
     }
     burgerCount++;
 });
 
 function rotate(){
-    s1.style["-webkit-transform"] = "rotate(45deg)"
     s1.style.transform = "rotate(45deg)";
-    s5.style["-webkit-transform"] = "rotate(-45deg)"
+    s1.style["-webkit-transform"] = "rotate(45deg)"
     s5.style.transform = "rotate(-45deg)";
+    s5.style["-webkit-transform"] = "rotate(-45deg)"
 }
 
 function unRotate(){
