@@ -172,7 +172,7 @@ burger.addEventListener('mousedown', () => {
         }
 
         // top and bottom
-        let scale = (window.innerWidth >= 800) ? 0.6 : 0.5;
+        let scale = (window.innerWidth > 800) ? 0.6 : 0.5;
         s1.style.transform = "rotate(45deg)";
         s1.style.top = (scale * 2 * 16) +"px";
         s5.style.transform = "rotate(-45deg)";

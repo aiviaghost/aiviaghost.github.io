@@ -49,6 +49,7 @@ button{
     width: 4em;
     height: 0.6em;
     border-radius: 5px;
+    -webkit-transition: all 1s;
     transition: all 1s;
 }
 
