@@ -81,6 +81,7 @@ aside{
     background-color: rgba(0, 0, 0, 0.85);
     z-index: 1;
     text-align: center;
+    -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
 
