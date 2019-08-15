@@ -267,6 +267,14 @@ li{
         display: block;
     }
 
+    .top1{
+        top: calc(0.5 * 2 * 16px);
+    }
+
+    .top2{
+        top: calc(-0.5 * 2 * 16px);
+    }
+
     aside{
         width: 100vw;
         left: -100vw;
