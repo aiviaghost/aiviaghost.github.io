@@ -73,6 +73,30 @@ button{
     background-color: #f3c477;
 }
 
+.rotate1{
+    transform: rotate(45deg);
+}
+
+.top1{
+    top: calc(0.6 * 2 * 16px);
+}
+
+.rotate2{
+    transform: rotate(-45deg);
+}
+
+.top2{
+    top: calc(-0.6 * 2 * 16px);
+}
+
+.unRotate{
+    transform: rotate(0);
+}
+
+.unTop{
+    top: 0;
+}
+
 aside{
     position: fixed;
     width: 22vw;

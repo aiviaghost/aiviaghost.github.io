@@ -173,9 +173,11 @@ burger.addEventListener('mousedown', () => {
 
         // top and bottom
         let scale = (window.innerWidth > 800) ? 0.6 : 0.5;
-        s1.style.top = (scale * 2 * 16) +"px";
-        s5.style.top = -(scale * 2 * 16) +"px";
+        s1.classList.add("top1");
+        s5.classList.add("top2");
         setTimeout(rotate, 500);
+
+        setTimeout(removeUn, 500);
     }
     else{
         aside.style.left = -aside.offsetWidth + "px";
@@ -186,23 +188,35 @@ burger.addEventListener('mousedown', () => {
         s4.style.backgroundColor = "#9aa413";
 
         // top and bottom
-        s1.style.transform = "rotate(0)";
-        s1.style["-webkit-transform"] = "rotate(0)"
-        s5.style.transform = "rotate(0)";
-        s5.style["-webkit-transform"] = "rotate(0)"
-        setTimeout(unRotate, 500);
+        s1.classList.add("unRotate");
+        s5.classList.add("unRotate");
+        setTimeout(unTop, 500);
+
+        setTimeout(removeNotUn, 500);
     }
     burgerCount++;
-});
+})
 
 function rotate(){
-    s1.style.transform = "rotate(45deg)";
-    s1.style["-webkit-transform"] = "rotate(45deg)"
-    s5.style.transform = "rotate(-45deg)";
-    s5.style["-webkit-transform"] = "rotate(-45deg)"
+    s1.classList.add("rotate1");
+    s5.classList.add("rotate2");
 }
 
-function unRotate(){
-    s1.style.top = "0%";
-    s5.style.top = "0%";
+function unTop(){
+    s1.classList.add("unTop");
+    s5.classList.add("unTop");
+}
+
+function removeUn(){
+    s1.classList.remove("unRotate");
+    s5.classList.remove("unRotate");
+    s1.classList.remove("unTop");
+    s5.classList.remove("unTop");
+}
+
+function removeNotUn(){
+    s1.classList.remove("rotate1");
+    s5.classList.remove("rotate2");
+    s1.classList.remove("top1");
+    s5.classList.remove("top2");
 }
