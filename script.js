@@ -172,26 +172,20 @@ burger.addEventListener('mousedown', () => {
         }
 
         // top and bottom
-        let scale = (window.innerWidth > 800) ? 0.6 : 0.5;
         s1.classList.add("top1");
         s5.classList.add("top2");
-        setTimeout(rotate, 500);
 
+        setTimeout(rotate, 500);
         setTimeout(removeUn, 500);
     }
     else{
         aside.style.left = -aside.offsetWidth + "px";
 
-        // middles
-        s2.style.backgroundColor = "#f6b80d";
-        s3.style.backgroundColor = "#4f1c0d";
-        s4.style.backgroundColor = "#9aa413";
-
-        // top and bottom
         s1.classList.add("unRotate");
         s5.classList.add("unRotate");
-        setTimeout(unTop, 500);
+        setTimeout(middleColors, 600);
 
+        setTimeout(unTop, 500);
         setTimeout(removeNotUn, 500);
     }
     burgerCount++;
@@ -219,4 +213,10 @@ function removeNotUn(){
     s5.classList.remove("rotate2");
     s1.classList.remove("top1");
     s5.classList.remove("top2");
+}
+
+function middleColors(){
+    s2.style.backgroundColor = "#f6b80d";
+    s3.style.backgroundColor = "#4f1c0d";
+    s4.style.backgroundColor = "#9aa413";
 }
