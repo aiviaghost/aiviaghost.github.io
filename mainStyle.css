@@ -142,7 +142,7 @@ li{
     position: absolute;
     background-attachment: fixed;
     background: url(tinyCity.jpg);
-    width: 48.3vw;
+    width: 50vw;
     height: 100vh;
     background-size: calc(100vw - 17px) 100vh;
     border-right: 5px solid var(--mainColor);
@@ -166,7 +166,7 @@ li{
 #btnSlider{
     position: absolute;
     top: 80%;
-    left: calc(48.3vw - 3em - 2.5px);
+    left: calc(50vw - 3em - 2.5px);
     border-radius: 100%;
     width: 6em;
     height: 6em;
