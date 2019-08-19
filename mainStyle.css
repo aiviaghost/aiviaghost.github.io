@@ -140,6 +140,7 @@ li{
 
 #overlay{
     position: absolute;
+    background-attachment: fixed;
     background: url(tinyCity.jpg);
     width: 48.3vw;
     height: 100vh;
@@ -206,6 +207,7 @@ li{
 #backdrop{
     width: 100vw;
     height: 100vh;
+    background-attachment: fixed;
     background: url(tinyCity.jpg), var(--mainColor);
     background-repeat: no-repeat;
     background-size: calc(100vw - 17px) 100vh;
