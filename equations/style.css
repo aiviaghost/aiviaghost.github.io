@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hidden{
+    position: absolute;
+    left: -20000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrapper{
+    background-color: #252526;
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+}
+
+header{
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    line-height: 15vh;
+    vertical-align: middle;
+    font-size: 3em;
+    color: #027acc;
+}
+
+button{ /*reset*/
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+#addEq{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+#addEq > div{
+    position: relative;
+    background:#8e8f91;
+    width: 10%;
+    height: 70%;
+    left: 22.5px;
+}
+
+div[a]{
+    transform: rotate(90deg);
+    top: 15%;
+}
+
+div[b]{
+    top: -55%;
+}
+
+#btnSolve{
+    background-color: #027acc;
+    width: 70px;
+    height: 50px;
+    position: absolute;
+}
+
+#eqWrapper{
+    width: 80%;
+    height: calc(100% - 15vh - 75px);
+    margin: auto;
+    padding-top: 5px;
+}
+
+.equations{
+    width: 80%;
+    height: 40px;
+}
+
+#results{
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 300px;
+    font-size: 2em;
+    text-align: center;
+    padding: 1em;
+    border-radius: 1em;
+}
