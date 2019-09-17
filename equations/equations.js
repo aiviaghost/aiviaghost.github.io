@@ -5,7 +5,7 @@ let eqWrapper = document.getElementById("eqWrapper");
 
 // Reposition the button for adding new equations
 function repositionButtons(){
-    // width:
+    // left:
     // space between wrapper and edge of window(x-axis)
     let outsideSpace = (window.innerWidth - wrapper.offsetWidth)/2;
     // space between equations and edge of wrapper
@@ -14,8 +14,8 @@ function repositionButtons(){
     let eqLength = eqWrapper.childNodes[last].offsetWidth;
     addEq.style.left = outsideSpace + insideMargin + eqLength + "px";
     btnSolve.style.left = -70 + addEq.offsetLeft + "px";
-
-    // height:
+    
+    // top:
     addEq.style.top = 0.15 * window.innerHeight + 40 * (eqWrapper.childNodes.length - 3) + "px";
     btnSolve.style.top = 55 + addEq.offsetTop + "px";
 }
@@ -25,19 +25,16 @@ function repositionButtons(){
 })
 
 // add equation
-addEq.addEventListener('mousedown', () => {
+addEq.addEventListener('click', () => {
     let child = document.createElement("input");
     child.classList.add("equations");
     eqWrapper.appendChild(child);
-
     repositionButtons();
 })
 
 
 // this solves the equations:
-btnSolve.addEventListener('mousedown', solveEquations);
-
-function solveEquations(){
+btnSolve.addEventListener('click', () => {
     let children = eqWrapper.childNodes.length;
     let vars = [];
     let eqs = [];
@@ -49,21 +46,21 @@ function solveEquations(){
             temp = temp.replace(/ /g, "");
             eqs.push(temp);
             for(let j = 0; j < temp.length; j++){
-                if(temp[j].match(/[a-ö]/i) && !vars.includes(temp[j])){
+                let regex = new RegExp("[a-ö]", "i");
+                if(temp[j].match(regex) && !vars.includes(temp[j])){
                     vars.push(temp[j]);
                 }
             }
         }
     }
-
+    
     // create dictionary to keep track of which var belongs where in the matrix
     let dict = new Object();
     for(let i = 0; i < vars.length; i++){
         dict[vars[i]] = i;
         dict[i] = vars[i];
     }
-    console.log(dict);
-
+    
     // create the matrix
     let matrix = [];
     for(let i = 0; i < eqs.length; i++) {
@@ -72,7 +69,7 @@ function solveEquations(){
             matrix[i][j] = 0;
         }
     }
-
+    
     /* 
     * populate the matrix with the coefficients from each equation
     * use dictionary to place each variable in its specific column
@@ -89,7 +86,7 @@ function solveEquations(){
             }
         }
     }
-
+    
     // determines the coefficient infront of a variable
     function coefficient(str, end){
         let start = end - 1;
@@ -107,7 +104,7 @@ function solveEquations(){
             return 1;
         }
     }
-
+    
     // determines the constant term after the "="
     function constantTerm(str, start){
         let end = start;
@@ -116,7 +113,11 @@ function solveEquations(){
         }
         return parseFloat(str.substring(start, end));
     }
-
+    
+    // WIP, TODO: refactor =>
+    // => while (main diagonal != 1) => swap rows
+    // after main diagonal contains no zeros =>
+    // => set main iagonal to one and set the rest to zero
     for(let i = 0; i < matrix.length; i++){
         let mainCo = matrix[i][i];
         /* 
@@ -124,32 +125,45 @@ function solveEquations(){
         * swap row with a row containing a variable in same column that is != 0
         */
         if(mainCo == 0){
-            for(let j = 0; j < matrix.length; j++){ // try "let j = i"
+            for(let j = 0; j < matrix.length; j++){ // try "let j = i + 1" or "j = 0"
                 if(matrix[j][i] != 0){
-                    let temp = matrix[i].map(x => x);
-                    matrix[i] = matrix[j].map(x => x);
-                    matrix[j] = temp.map(x => x);
+                    let temp = [...matrix[i]]; // spread operator Pogchamp
+                    matrix[i] = [...matrix[j]];
+                    matrix[j] = [...temp];
                 }
             }
+            if(mainCo != 1){
+                setMainCoToOne(matrix[i], i);
+            }
+        }
+        else if(mainCo != 1){
+            setMainCoToOne(matrix[i], i);
         }
 
         // set the coefficients below the main diagonal to 0
         for(let j = i + 1; j < matrix.length; j++){
             if(matrix[j][i] != 0){
-                let factor = -1 * (matrix[j][i] / mainCo);
+                let factor = -1 * (matrix[j][i] / matrix[i][i]); // -1 * matrix[j][i]? and why doesn't mainCo work instead of matrix[i][i]?
                 for(let k = 0; k <= vars.length; k++){
                     matrix[j][k] += factor * matrix[i][k];
                 }
             }
         }
+    }
 
-        // sets coefficients along "main-diagonal" to 1
-        if(mainCo != 1 && mainCo != 0){
-            for(let j = 0; j <= vars.length; j++){
-                matrix[i][j] /= mainCo;
-            }
+    // just for debugging
+    let cMatrix = [];
+    for(let i = 0; i < eqs.length; i++){
+        cMatrix[i] = [...matrix[i]];
+    }
+    console.log(cMatrix);
+
+    // sets coefficients along "main-diagonal" to 1
+    function setMainCoToOne(row, i){
+        let mainCo = row[i];
+        for(let j = 0; j <= vars.length; j++){
+            row[j] /= mainCo;
         }
-        
     }
 
     // sets coefficients above the main diagonal to 0
@@ -162,13 +176,25 @@ function solveEquations(){
             }
         }
     }
+    console.log(matrix);
+
+    // WIP
+    // check if found solutions are valid, output solutions or error message
+    for(let i = 0; i < eqs.length; i++){
+        for(let j = 0; j < vars.length; j++){
+            let variable = new RegExp(dict[j], "g");
+            eqs[i] = eqs[i].replace(variable, matrix[i][vars.length]);
+        }
+    }
 
     // display results and add option to hide/ remove results
     let results = document.getElementById("results");
     for(let i = 0; i < matrix.length; i++){
-        let p = document.createElement("p");
-        p.textContent = dict[i] + " = " + matrix[i][vars.length];
-        results.appendChild(p);
+        if(dict[i] != undefined){
+            let p = document.createElement("p");
+            p.textContent = dict[i] + " = " + matrix[i][vars.length];
+            results.appendChild(p);
+        }
     }
     results.style.display = "block";
     results.addEventListener('mousedown', removeChildren);
@@ -179,6 +205,20 @@ function solveEquations(){
         results.style.display = "none";
         results.removeEventListener('mousedown', removeChildren);
     }
+})
 
-    console.log(matrix);
-}
+/**
+ * x-2y+2z-4u+5v-2w=0
+ * -2y+4z-3u+5v-w=15
+ * 3z+u-4v+2w=5
+ * u-2v+5w=24
+ * 2v-w=4
+ * 6w=36
+ */
+
+ /**
+  * -2a-2b+4c=24
+  * 2a+5b-7c=-27
+  * -2a-4b+5c=16
+  * a = -1, b = 9, c = 10
+  */
