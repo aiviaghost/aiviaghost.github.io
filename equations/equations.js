@@ -60,6 +60,7 @@ btnSolve.addEventListener('click', () => {
         dict[vars[i]] = i;
         dict[i] = vars[i];
     }
+    console.log(dict);
     
     // create the matrix
     let matrix = [];
@@ -125,38 +126,31 @@ btnSolve.addEventListener('click', () => {
         * swap row with a row containing a variable in same column that is != 0
         */
         if(mainCo == 0){
-            for(let j = 0; j < matrix.length; j++){ // try "let j = i + 1" or "j = 0"
+            for(let j = matrix.length - 1; j >= 0; j--){ // try "let j = i + 1" or "j = 0"
                 if(matrix[j][i] != 0){
                     let temp = [...matrix[i]]; // spread operator Pogchamp
                     matrix[i] = [...matrix[j]];
                     matrix[j] = [...temp];
+                    mainCo = matrix[i][i];
+                    break;
                 }
             }
-            if(mainCo != 1){
-                setMainCoToOne(matrix[i], i);
-            }
         }
-        else if(mainCo != 1){
+        if(mainCo != 1){
             setMainCoToOne(matrix[i], i);
+            mainCo = matrix[i][i];
         }
 
         // set the coefficients below the main diagonal to 0
         for(let j = i + 1; j < matrix.length; j++){
             if(matrix[j][i] != 0){
-                let factor = -1 * (matrix[j][i] / matrix[i][i]); // -1 * matrix[j][i]? and why doesn't mainCo work instead of matrix[i][i]?
+                let factor = -1 * matrix[j][i];
                 for(let k = 0; k <= vars.length; k++){
                     matrix[j][k] += factor * matrix[i][k];
                 }
             }
         }
     }
-
-    // just for debugging
-    let cMatrix = [];
-    for(let i = 0; i < eqs.length; i++){
-        cMatrix[i] = [...matrix[i]];
-    }
-    console.log(cMatrix);
 
     // sets coefficients along "main-diagonal" to 1
     function setMainCoToOne(row, i){
@@ -170,8 +164,8 @@ btnSolve.addEventListener('click', () => {
     for(let i = vars.length - 1; i >= 0; i--){
         for(let j = i - 1; j >= 0; j--){
             if(matrix[j][i] != 0){
-                let factor = -1 * (matrix[j][i] / matrix[i][i]);
-                matrix[j][i] += factor * matrix[i][i];
+                let factor = -1 * (matrix[j][i]);
+                matrix[j][i] += factor;
                 matrix[j][vars.length] += factor * matrix[i][vars.length];
             }
         }
@@ -179,7 +173,7 @@ btnSolve.addEventListener('click', () => {
     console.log(matrix);
 
     // WIP
-    // check if found solutions are valid, output solutions or error message
+    // check if found solutions are valid => output solutions or error message
     for(let i = 0; i < eqs.length; i++){
         for(let j = 0; j < vars.length; j++){
             let variable = new RegExp(dict[j], "g");
@@ -192,7 +186,13 @@ btnSolve.addEventListener('click', () => {
     for(let i = 0; i < matrix.length; i++){
         if(dict[i] != undefined){
             let p = document.createElement("p");
-            p.textContent = dict[i] + " = " + matrix[i][vars.length];
+            // floating point workaround :ok_hand:
+            if(Math.abs(Math.round(matrix[i][vars.length]) - matrix[i][vars.length]) <= 0.0000000001){
+                p.textContent = dict[i] + " = " + Math.round(matrix[i][vars.length]);
+            }
+            else{
+                p.textContent = dict[i] + " = " + matrix[i][vars.length];
+            }
             results.appendChild(p);
         }
     }
@@ -206,19 +206,3 @@ btnSolve.addEventListener('click', () => {
         results.removeEventListener('mousedown', removeChildren);
     }
 })
-
-/**
- * x-2y+2z-4u+5v-2w=0
- * -2y+4z-3u+5v-w=15
- * 3z+u-4v+2w=5
- * u-2v+5w=24
- * 2v-w=4
- * 6w=36
- */
-
- /**
-  * -2a-2b+4c=24
-  * 2a+5b-7c=-27
-  * -2a-4b+5c=16
-  * a = -1, b = 9, c = 10
-  */
