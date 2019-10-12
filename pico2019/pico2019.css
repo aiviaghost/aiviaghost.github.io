@@ -18,7 +18,8 @@ body{
     background-color: var(--darkContainer);
     position: sticky;
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 100vw;
     max-width: 900px;
     height: 10vh;
     min-height: 60px;
@@ -39,7 +40,7 @@ body{
     background-color: var(--darkContainer);
     margin-right: auto;
     margin-left: auto;
-    width: 100%;
+    width: 100vw;
     max-width: 900px;
     height: 200vh;
 }
