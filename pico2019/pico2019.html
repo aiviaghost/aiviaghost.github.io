@@ -5,16 +5,34 @@
     <meta name="Description" content="A collection of writeups for the PicoCTF 2019 competition.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PicoCTF 2019 writeups</title>
+    <title>PicoCTF 2019 Write-ups</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="pico2019.css">
 </head>
 <body>
     <nav id="nav">
+        <div id="picoLogo"></div>
         <header id="pico2019">PicoCTF 2019</header>
     </nav>
     <div id="container">
         <div id="startImage"></div>
+
+        <section id="asm1" class="challenges">
+            <h1>asm1 - Points: 200</h1>
+            
+            <div class="description">
+                Problem description:
+                <p>
+                    What does asm1(0x76) return? Submit the flag as a hexadecimal value (starting with '0x'). NOTE: Your submission for this question will NOT be in the normal flag format. Source located in the directory at /problems/asm1_0_b87970313ffbb5bcf4240e7c7b6c90cf.
+                </p>
+            </div>
+
+            <p>
+                This challenge serves an introduction to assembly. Basically you have a bunch of registers, epb, esp and eax in this case. Registers are memory locations in the CPU that can store some data and allow the CPU run computations without having to access "outside" memory locations. Each register has a special purpose but since this is a simple challenge these registers can simply be viewed as normal variables, they just store some value. The goal of this challenge will be to figure out what the final value stored in ebp is. <br>
+                Below is a screenshot of the assembly code with some comments explaining the instructions that are actually used. 
+            </p>
+            <div id="imgAsm1" class="imgs"></div>
+        </section>
     </div>
 
     <script src="pico2019.js"></script>

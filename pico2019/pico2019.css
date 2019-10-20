@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -26,14 +27,26 @@ body{
     max-height: 5em;
     transition: background-color 0.3s;
     z-index: 1;
+    display: flex;
 }
 
 #pico2019{
     color: #dbdbdb;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.5em;
     margin-left: 1em;
     vertical-align: middle;
+}
+
+#picoLogo{
+    height: 100%;
+    width: 60px;
+    background-image: url(pico.png);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 50%;
+    left: 1em;
+    margin-top: -30px;
 }
 
 #container{
@@ -42,14 +55,47 @@ body{
     margin-left: auto;
     width: 100vw;
     max-width: 900px;
-    height: 200vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 #startImage{
     width: 900px;
-    height: 10vh;
     background-image: url(hackerman.jpg);
-    background-size: contain;
+    background-size: 100% auto;
     background-repeat: no-repeat;
-    padding-top: 56.25%
+}
+
+.challenges{
+    width: 100%;
+    background-color: var(--darkContainer);
+    padding: 1em;
+    color: #dbdbdb;
+}
+
+h1{
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
+.description > p{
+    background-color: #464646;
+    margin: 5px;
+    padding: 1em;
+    word-wrap: break-word;
+}
+
+.imgs{
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    max-height: 800px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    margin: 10px auto 0 auto;
+}
+
+#imgAsm1{
+    background-image: url(asm1.png);
 }
