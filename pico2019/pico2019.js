@@ -9,6 +9,7 @@ let darkContainer = "#262729";
         //container.style.left = (window.innerWidth - container.offsetWidth)/2 + "px";
         nav.style.left = container.offsetLeft + "px";
         header1.style.lineHeight = nav.offsetHeight + "px";
+        startImage.style.height = (720 * startImage.offsetWidth) / 1280 + "px";
     })
 })
 
