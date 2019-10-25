@@ -28,10 +28,25 @@
             </div>
 
             <p>
-                This challenge serves as an introduction to assembly. Basically you have a bunch of registers, ebp, esp and eax in this case. Registers are memory locations in the CPU that can store some data and allow the CPU to run computations without having to access external memory locations. Each register typically has a special purpose but since this is a simple challenge these registers can simply be viewed as normal variables, they just store some value. The goal of this challenge will be to figure out what the final value stored in ebp is. <br>
+                This challenge serves as an introduction to assembly. Basically you have a bunch of registers, ebp, esp and eax in this case. Registers are memory locations in the CPU that can store some data and allow the CPU to run computations without having to access external memory locations. esp is the "stack pointer" and moving it to ebp, the "base pointer", allows us to target specific locations in the stack, for example variables and function arguments. eax is a general purpose register and can be treated as just a normal variable used for computations (Can be viewed as a temp variable in this case). The goal of this challenge will be to figure out what the final value stored in ebp is. <br>
+                The stack in this case looks like this: <br>
+                ------------------------------------------------------------------------ <br>
+                [ebp] = base pointer <br>
+                ------------------------------------------------------------------------ <br>
+                [ebp+0x4] = return address <br>
+                ------------------------------------------------------------------------ <br>
+                [ebp+0x8] = first function argument = 0x76 <br>
+                ------------------------------------------------------------------------ <br>
+                The main take-away from analyzing the stack is that we know the value of [ebp+0x8] is 0x76. <br>
+                Let us then take a quick look at the operations performed. "cmp" will compare two values and the statement after will use the result of this comparison. "jg" will jump ("jmp" in assembly) to the specified line  if the comparison above it results in the destination operand (first value after jg) being greater than the source operand (second value after jg). "jne" is similar to jg but jumps if the comparison results in the destination operand not being equal to the source operand. <br>
                 Below is a screenshot of the assembly code with some comments explaining the instructions that are actually used. 
             </p>
+            
             <div id="imgAsm1" class="imgs"></div>
+
+            <p>
+                The result is <b flag>0x87</b> which is also the flag.
+            </p>
         </section>
     </div>
 

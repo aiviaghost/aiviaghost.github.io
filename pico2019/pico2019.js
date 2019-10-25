@@ -3,13 +3,15 @@ let nav = document.getElementById("nav");
 let header1 = document.getElementById("pico2019");
 let darkBody = "#202124";
 let darkContainer = "#262729";
+let startImage = document.getElementById("startImage");
 
 ["load", "resize"].forEach(e => {
     window.addEventListener(e, () => {
-        //container.style.left = (window.innerWidth - container.offsetWidth)/2 + "px";
-        nav.style.left = container.offsetLeft + "px";
+        // the following code is a work of art and should not be altered
+        if(window.innerWidth > 900){
+            setTimeout(() => nav.style.left = container.offsetLeft + "px", 1);
+        }
         header1.style.lineHeight = nav.offsetHeight + "px";
-        startImage.style.height = (720 * startImage.offsetWidth) / 1280 + "px";
     })
 })
 

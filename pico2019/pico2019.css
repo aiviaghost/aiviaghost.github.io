@@ -62,9 +62,11 @@ body{
 
 #startImage{
     width: 900px;
+    height: 0;
     background-image: url(hackerman.jpg);
-    background-size: 100% auto;
+    background-size: contain;
     background-repeat: no-repeat;
+    padding-top: 56.25%;
 }
 
 .challenges{
@@ -86,6 +88,10 @@ h1{
     word-wrap: break-word;
 }
 
+b[flag]{
+    background-color: #464646;
+}
+
 .imgs{
     width: 100%;
     max-width: 600px;
@@ -93,7 +99,7 @@ h1{
     background-repeat: no-repeat;
     background-size: contain;
     padding-top: 56.25%;
-    margin: 10px auto 0 auto;
+    margin: 15px auto 15px auto;
 }
 
 #imgAsm1{
