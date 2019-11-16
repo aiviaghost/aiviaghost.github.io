@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Look at this graph</title>
-        <meta name="description" content="A graphing calculator.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div id="container">
-            <div id="controls">
-                <header>The big calc</header>
-                <input id="graphInput" type="text" aria-label="Input a mathematical function here">
-                <div id="warning">
-                    <div a></div>
-                    <div b></div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calc</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cuprum&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="expression"></div>
+    <div id="displayResult"></div>
 
-                <!--p id="output">Wack</p-->
+    <section id="numbers">
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="number">.</button>
+        <button class="number">0</button>
+        <button class="number">=</button>
+    </section>
 
-                <div id="slider"><p class="hidden">Drag to resize controls</p></div>
-            </div>
-            <canvas id="graph">An area to display mathematical functions.</canvas>
-        </div>
+    <section id="operators">
+        <button class="operator">C</button>
+        <button class="operator">/</button>
+        <button class="operator">*</button>
+        <button class="operator">-</button>
+        <button class="operator">+</button>
+    </section>
 
-        <script src="graph.js"></script>
-    </body>
+    <div id="draggableSurface">
+
+    </div>
+
+    <script src="calc.js"></script>
+</body>
 </html>

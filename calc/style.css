@@ -3,117 +3,65 @@
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    border: 0;
+    font-family: 'Cuprum', sans-serif;
 }
 
-.hidden{
-    position: absolute;
-    left: -20000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
-#container{
+#expression{
     width: 100vw;
-    height: 100vh;
-    background: #1e1e1e;
+    height: 20vh;
 }
 
-#controls{
-    z-index: 1;
-    width: 25vw;
-    height: 100%;
-    background: #252526;
+#displayResult{
+    width: 100vw;
+    height: 10vh;
 }
 
-header{
-    color: #027acc;
-    text-align: center;
-    font-size: 3em;
-    font-weight: bold;
-    margin-top: 1em;
+button{
+	background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
-#graphInput{
-    display: block;
+#numbers{
+    width: 67.5vw;
+    height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.number{
+    background-color: #1e1e1e;
+    color: #8e8f91;
+    font-size: 30px;
+    width: 22.5vw;
+    height: 17.5vh;
+}
+
+#operators{
+    width: 22.5vw;
+    height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.operator{
+    width: 22.5vw;
+    height: 14vh;
+    background-color: #252526;
+    color: #8e8f91;
+    font-size: 30px;
+}
+
+#draggableSurface{
     width: 10vw;
-    height: 5vh;
-    margin: 10vh auto 0 auto;
-    padding: 5px;
-    border-bottom: #027acc 3px solid;
-    background: #252526;
-    color: #b4b4b4;
-    text-indent: calc((5vh - 1em - 16px) / 2);
-}
-
-#graphInput:focus{
-    border: #027acc 3px solid;
-    border-radius: 3px;
-}
-
-button{ /*reset*/
-    background: none;
-    color: inherit;
-    border: none;
-    font: inherit;
-    outline: inherit;
-}
-
-#warning{
-    width: 5vh;
-    height: 5vh;
-    position: relative;
-    top: -5vh;
-    left: 17.5vw;
-    overflow: hidden;
-    display: none;
-}
-
-#warning > div{
-    position: relative;
-    background: red;
-    width: 10%;
-    height: 70%;
-    left: 50%;
-}
-
-#warning > [a]{
-    transform: rotate(45deg);
-}
-
-#warning > [b]{
-    top: -70%;
-    transform: rotate(-45deg);
-}
-
-#output{
-    color: white;
+    height: 70vh;
+    background-color: #027acc;
     position: absolute;
-    top: 60%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    font-size: 4em;
-}
-
-#slider{
-    z-index: 2;
-    position: absolute;
-    width: 2vw;
-    height: 100vh;
-    top: 0;
-    left: 24vw;
-}
-
-#slider:hover{
-    cursor: ew-resize;
-}
-
-#graph{
-    position: absolute;
-    top: 0;
+    top: 30vh;
     right: 0;
-    width: 75vw;
-    height: 100vh;
 }
