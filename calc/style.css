@@ -9,11 +9,20 @@
 #expression{
     width: 100vw;
     height: 20vh;
+    line-height: calc(20vh - 32px);
+    text-align: right;
+    padding: 16px;
+    font-size: 80px;
+    border: none;
 }
 
 #displayResult{
     width: 100vw;
     height: 15vh;
+    line-height: calc(15vh - 32px);
+    text-align: right;
+    padding: 16px;
+    font-size: 60px;
 }
 
 button{
@@ -26,6 +35,7 @@ button{
 }
 
 #numbers{
+    background-color: #1e1e1e;
     width: 67.5vw;
     height: 65vh;
     display: flex;
@@ -34,7 +44,6 @@ button{
 }
 
 .number{
-    background-color: #1e1e1e;
     color: #8e8f91;
     font-size: 30px;
     width: 22.5vw;
@@ -42,26 +51,33 @@ button{
 }
 
 #operators{
+    background-color: #252526;
     width: 22.5vw;
     height: 65vh;
     display: flex;
     flex-wrap: wrap;
-    float: left;
 }
 
 .operator{
     width: 22.5vw;
     height: 13vh;
-    background-color: #252526;
     color: #8e8f91;
     font-size: 30px;
 }
 
-#draggableSurface{
-    width: 10vw;
+#advancedOperators{
+    width: 100vw;
     height: 65vh;
     background-color: #027acc;
     position: absolute;
     top: 35vh;
-    right: 0;
+    left: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.advancedOperator{
+    width: 25vw;
+    height: 13vh;
+    font-size: 30px;
 }
