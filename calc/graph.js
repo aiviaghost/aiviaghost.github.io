@@ -207,8 +207,17 @@ function drawGraph(){
         ctx.strokeStyle = "white";
         let x = - 50*cw;
         let startingPoint = true;
+        let expression = graphInput.value;
+        for (let i = 1; i < expression.length; i++) { // convert 2x to 2*x
+            if (isDigit(expression.charAt(i - 1)) && expression.charAt(i) == 'x') {
+                let temp1 = expression.substring(0, i);
+                let temp2 = expression.substring(i, expression.length);
+                expression = temp1 + "*" + temp2;
+                i += 2;
+            }
+        }
         while(x + 50*cw < ctx.canvas.width){
-            let input = graphInput.value.replace(/x/g, x);
+            let input = expression.replace(/x/g, x);
             if(startingPoint){
                 ctx.moveTo(x + 50*cw, 50*ch - evaluatePostfix(infixToPostfix(input)));
                 startingPoint = false;
@@ -217,8 +226,6 @@ function drawGraph(){
                 let y = 50*ch - evaluatePostfix(infixToPostfix(input));
                 if(y > -10*ch && y < 110*ch){
                     ctx.lineTo(x + 50*cw, y);
-                    console.log("x: " + x);
-                    console.log(y);
                 }
 
             }
@@ -249,13 +256,13 @@ graphInput.addEventListener('blur', () => {
     if(graphInput.value == ""){
         graphInput.style.color = "#b4b4b4";
         graphInput.value = "x^2";
+        drawGraph();
     }
     else if(regex.test(graphInput.value)){
         graphInput.style.borderColor = "red";
         errorSymbol.style.display = "block";
     }
     else{
-        //document.getElementById("output").textContent = evaluatePostfix(infixToPostfix(graphInput.value));
         drawGraph();
     }
 })
@@ -281,7 +288,6 @@ document.addEventListener('mousemove', e => {
         // WIP
         // maybe make the graph larger than viewport and allow the user to move it around to view different areas
         graph.style.width = (window.innerWidth - controls.offsetWidth) + "px";
-        graph.style.height = (window.innerHeight) + "px";
         drawGraph();
     }
 })
