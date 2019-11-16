@@ -1,6 +1,11 @@
+/*
+* This is all code to parse user input and evaluate the result
+*/
+
 // Convert user input to postfix notation, this makes evaluating input easier since operator presedence is more clear
 // Essentially operators follow the operands so "5+2" will become "5 2+"
 function infixToPostfix(input){
+    // "/ /g" is a RegEx to target all spaces " "
     input = input.replace(/ /g, "");
     
     // This loop formats the input so that negative numbers become easier to evaluate, i.e "5+-2" will become "5+(0-2)" and "-5*-2" will become "(0-5)*(0-2)"
@@ -153,25 +158,73 @@ function performOperator(d1, d2, op){
 // JS ain't like Java so no built in Stack<>() FeelsBadMan
 class Stack {
     constructor() {
-        this.stack = []
+        this.stack = [];
     }
     
     push(element) {
-        this.stack.push(element)
+        this.stack.push(element);
     }
     
     pop() {
-        if (this.isEmpty()) return 'Needs more stuff'
-        return this.stack.pop()
+        if (this.isEmpty()) return 'Needs more stuff';
+        return this.stack.pop();
     }
     
     peek() {
-        if (this.isEmpty()) return 'Needs more stuff'
-        return this.stack[this.stack.length - 1]
+        if (this.isEmpty()) return 'Needs more stuff';
+        return this.stack[this.stack.length - 1];
     }
     
     isEmpty() {
-        return !this.stack.length
+        return !this.stack.length;
+    }
+}
+
+
+/*
+* This codes implements the ability to graph a mathematical function
+*/
+window.addEventListener('load', drawGraph);
+let graph = document.getElementById("graph");
+function drawGraph(){
+    if(graph.getContext){
+        var ctx = graph.getContext('2d');
+        ctx.canvas.width = graph.offsetWidth;
+        ctx.canvas.height = graph.offsetHeight;
+        let cw = 0.01 * ctx.canvas.width;
+        let ch = 0.01 * ctx.canvas.height;
+
+        // X & Y Axis
+        ctx.strokeStyle = "#84c1dc";
+        ctx.beginPath();
+        ctx.moveTo(0, 50*ch);
+        ctx.lineTo(100*cw, 50*ch);
+        ctx.moveTo(50*cw, 0);
+        ctx.lineTo(50*cw, 100*ch);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "white";
+        let x = - 50*cw;
+        let startingPoint = true;
+        while(x + 50*cw < ctx.canvas.width){
+            let input = graphInput.value.replace(/x/g, x);
+            if(startingPoint){
+                ctx.moveTo(x + 50*cw, 50*ch - evaluatePostfix(infixToPostfix(input)));
+                startingPoint = false;
+            }
+            else{
+                let y = 50*ch - evaluatePostfix(infixToPostfix(input));
+                if(y > -10*ch && y < 110*ch){
+                    ctx.lineTo(x + 50*cw, y);
+                    console.log("x: " + x);
+                    console.log(y);
+                }
+
+            }
+            x += 1;
+        }
+        ctx.stroke();
     }
 }
 
@@ -181,9 +234,9 @@ class Stack {
 */
 let graphInput = document.getElementById("graphInput");
 let errorSymbol = document.getElementById("warning");
-graphInput.value = "ex. 3^2";
+graphInput.value = "x^2";
 
-//RegEx is bae
+// RegEx is bae
 let regex = RegExp('[^0-9.x+\\-*/^() ]');
 
 graphInput.addEventListener('focus', () => {
@@ -195,14 +248,15 @@ graphInput.addEventListener('focus', () => {
 graphInput.addEventListener('blur', () => {
     if(graphInput.value == ""){
         graphInput.style.color = "#b4b4b4";
-        graphInput.value = "ex. 3^2";
+        graphInput.value = "x^2";
     }
     else if(regex.test(graphInput.value)){
         graphInput.style.borderColor = "red";
         errorSymbol.style.display = "block";
     }
     else{
-        document.getElementById("output").textContent = evaluatePostfix(infixToPostfix(graphInput.value));
+        //document.getElementById("output").textContent = evaluatePostfix(infixToPostfix(graphInput.value));
+        drawGraph();
     }
 })
 
@@ -224,5 +278,10 @@ document.addEventListener('mousemove', e => {
         controls.style.width = controlsWidth + "px";
         slider.style.left = (slider.offsetLeft + e.movementX) + "px";
         errorSymbol.style.left = 0.1 * window.innerWidth + ((controls.offsetWidth - 0.1 * window.innerWidth) / 2) + "px";
+        // WIP
+        // maybe make the graph larger than viewport and allow the user to move it around to view different areas
+        graph.style.width = (window.innerWidth - controls.offsetWidth) + "px";
+        graph.style.height = (window.innerHeight) + "px";
+        drawGraph();
     }
 })
