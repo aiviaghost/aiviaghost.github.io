@@ -6,6 +6,10 @@
     font-family: 'Cuprum', sans-serif;
 }
 
+#siteWrapper{
+    position: relative;
+}
+
 #expression{
     width: 100vw;
     height: 20vh;
