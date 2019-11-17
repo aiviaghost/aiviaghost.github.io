@@ -18,12 +18,7 @@
     padding: 16px;
     font-size: 80px;
     border: none;
-}
-
-.readonly:focus {
     outline: none;
-    border: none;
-    cursor: default;
 }
 
 #displayResult{
