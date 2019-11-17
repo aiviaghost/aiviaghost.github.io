@@ -44,6 +44,7 @@ function readOnlyKeypressHandler(event) {
 }
 document.addEventListener('load', function () {
     for (var i = 0; i < readOnlyInputs.length; i++) {
+        readOnlyInputs[i].classList.add('readonly');
         // Add the functions to the events
         readOnlyInputs[i].addEventListener('click', readOnlyClickHandler);
         readOnlyInputs[i].addEventListener('blur', readOnlyBlurHandler);
