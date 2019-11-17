@@ -22,7 +22,10 @@ for (let i = 1; i < operators.childElementCount; i++) {
 numbers.children[11].addEventListener("pointerdown", () => displayResult.textContent = evaluatePostfix(infixToPostfix(expression.value)))
 
 // enable the "clear" / "C" button
-operators.children[0].addEventListener("pointerdown", () => expression.value = "")
+operators.children[0].addEventListener("pointerdown", () => {
+    expression.value = ""; 
+    displayResult.textContent = "";
+})
 
 function infixToPostfix(input){
     // "/ /g" is a RegEx to target all spaces " "
