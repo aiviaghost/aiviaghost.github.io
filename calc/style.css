@@ -6,7 +6,7 @@
     font-family: 'Cuprum', sans-serif;
 }
 
-#siteWrapper{
+#siteWrapper{ /*jank wrapper to enable "overflow-x: hidden;" on mobile*/ 
     position: relative;
 }
 
