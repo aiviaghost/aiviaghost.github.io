@@ -18,10 +18,10 @@ for (let i = 1; i < operators.childElementCount; i++) {
     })
 }
 
-// enable the "="-button
+// enable the "=" button
 numbers.children[11].addEventListener("pointerdown", evaluateExpression)
 
-// enabel "clear"/ "C" button
+// enable the "clear" / "C" button
 operators.children[0].addEventListener("pointerdown", () => expression.value = "")
 
 function evaluateExpression(){
