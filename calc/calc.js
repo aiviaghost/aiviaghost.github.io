@@ -19,13 +19,18 @@ for (let i = 1; i < operators.childElementCount; i++) {
 }
 
 // enable the "=" button
-numbers.children[11].addEventListener("pointerdown", () => displayResult.textContent = evaluatePostfix(infixToPostfix(expression.value)))
+numbers.children[11].addEventListener("pointerdown", evaluateExpression)
 
 // enable the "clear" / "C" button
 operators.children[0].addEventListener("pointerdown", () => {
     expression.value = ""; 
     displayResult.textContent = "";
 })
+
+function evaluateExpression(){
+    let result = evaluatePostfix(infixToPostfix(expression.value));
+    displayResult.textContent = isNaN(result) ? "" : result;
+}
 
 function infixToPostfix(input){
     // "/ /g" is a RegEx to target all spaces " "
