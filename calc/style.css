@@ -22,6 +22,7 @@
 
 .readonly:focus {
     outline: none;
+    border: none;
     cursor: default;
 }
 
