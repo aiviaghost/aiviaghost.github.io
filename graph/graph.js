@@ -141,7 +141,7 @@ function evaluatePostfix(postfix){
 function performOperator(d1, d2, op){
     switch (op){
         case '+':
-            return parseInt(d2) + parseInt(d1); // JS be like "let me just add two strings unless parseInt"
+            return parseFloat(d2) + parseFloat(d1); // JS be like "let me just add two strings unless parseFloat"
         case '-':
             return d2 - d1;
         case '*':
