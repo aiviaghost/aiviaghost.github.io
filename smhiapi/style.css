@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table{
+    width: calc(100% - 2em);
+}
+
+table, th, td {
+    margin: 1em;
+    border: 1px solid black;
+}
+
+th, td{
+    padding: 5px;
+}
