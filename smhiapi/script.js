@@ -41,7 +41,9 @@ function displayData(data) {
     }
     table += "</tr>"
 
-    document.getElementById("table").innerHTML = table
+    let tableElement = document.createElement("table")
+    tableElement.innerHTML = table
+    document.getElementsByTagName("body")[0].appendChild(tableElement)
 }
 
 document.getElementById("get").addEventListener("click", () => {
