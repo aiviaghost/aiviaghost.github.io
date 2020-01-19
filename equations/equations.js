@@ -87,6 +87,13 @@ btnSolve.addEventListener('click', () => {
             }
         }
     }
+
+    // log initial matrix
+    let cMatrix = [];
+    for(let i = 0; i < matrix.length; i++){
+        cMatrix[i] = [...matrix[i]];
+    }
+    console.table(cMatrix);
     
     // determines the coefficient infront of a variable
     function coefficient(str, end){
@@ -170,7 +177,7 @@ btnSolve.addEventListener('click', () => {
             }
         }
     }
-    console.log(matrix);
+    console.table(matrix);
 
     // WIP
     // check if found solutions are valid => output solutions or error message
