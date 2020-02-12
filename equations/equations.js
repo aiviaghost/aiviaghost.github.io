@@ -63,13 +63,7 @@ btnSolve.addEventListener('click', () => {
     console.log(dict);
     
     // create the matrix
-    let matrix = [];
-    for(let i = 0; i < eqs.length; i++) {
-        matrix[i] = [];
-        for(let j = 0; j <= vars.length; j++) {
-            matrix[i][j] = 0;
-        }
-    }
+    matrix = Array(eqs.length).fill().map(() => Array(vars.length).fill(0))
     
     /* 
     * populate the matrix with the coefficients from each equation
