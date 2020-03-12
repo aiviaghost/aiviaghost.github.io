@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simplex method</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="wrapper">
+            <header>Simplex method</header>
+            <div id="rows_and_columns_controls">
+                <table>
+                    <tr>
+                        <td>Number of variables: </td>
+                        <td><input id="var_count" type="text"></td>
+                        <td>Number of inequalities: </td>
+                        <td><input id="ineq_count" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="create_tableau">Create tableau</button>
+                        </td>
+                        <td>
+                            <button id="optimize">Optimize</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="ineq_wrapper">
+                <table id="tableau"></table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="layout.js"></script>
+    <script src="simplex.js"></script>
+</body>
+</html>

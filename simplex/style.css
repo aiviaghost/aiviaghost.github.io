@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hidden{
+    position: absolute;
+    left: -20000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrapper{
+    background-color: #252526;
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+}
+
+header{
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    line-height: 15vh;
+    vertical-align: middle;
+    font-size: 3em;
+    color: #027acc;
+}
+
+button{ /*reset*/
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    background-color: #027acc;
+}
+
+input{
+    width: 60px;
+}
+
+#rows_and_columns_controls{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ineq_wrapper{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 540px){
+    header{
+        line-height: 7.5vh;
+    }
+}
