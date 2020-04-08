@@ -26,7 +26,7 @@ document.getElementById("create_tableau").addEventListener("click", () => {
             }
             temp_tableau += "</td>"
         }
-        temp_tableau += "<td><select class='lte_or_gte'><option selected>&lt;=</option><option>&gt;=</option></select></td><td><input class='constants'></td>"
+        temp_tableau += "<td><select class='lte_or_gte'><option selected>&lt;=</option><option>&gt;=</option><option>=</option></select></td><td><input class='constants'></td>"
         temp_tableau += "</tr>"
     }
 
