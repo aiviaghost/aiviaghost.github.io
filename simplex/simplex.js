@@ -45,7 +45,13 @@ document.getElementById("optimize").addEventListener("click", () => {
 
     // slack/ surplus variables
     for (let i = 0; i < ineq_count; i++) {
-        tableau[i][var_count + i] = (ineq_types[i].selectedIndex == 0) ? 1 : -1
+        // tableau[i][var_count + i] = (ineq_types[i].selectedIndex == 0) ? 1 : -1
+        if(ineq_types[i].selectedIndex == 0){
+            tableau[i][var_count + i] = 1
+        }
+        else if(ineq_types[i].selectedIndex == 1){
+            tableau[i][var_count + i] = -1
+        }
     }
 
     // constants
@@ -67,28 +73,33 @@ document.getElementById("optimize").addEventListener("click", () => {
         cj_rows.push(0)
     }
 
-    
-    console.table(tableau)
+    /*
+    temp_tableau = []
+    for(let i = 0; i < tableau.length; i++){
+        temp_tableau[i] = [...tableau[i]]
+    }
+    console.table(temp_tableau)
+    */
 
     if (document.getElementById("min_or_max").selectedIndex == 0) {
         // maximize
-        simplex_maximize_solver(tableau, solution_mix, cj_columns, cj_rows, dict, vars.length)
+        simplex_solver(tableau, solution_mix, cj_columns, cj_rows, dict, vars.length, "max")
     }
     else {
         // minimize
+        tableau[tableau.length - 1] = tableau[tableau.length - 1].map(x => -1 * x)
+        simplex_solver(tableau, solution_mix, cj_columns, cj_rows, dict, vars.length, "min")
+        
     }
 })
 
 
-function simplex_maximize_solver(tableau, solution_mix, cj_columns, cj_rows, dict, total_var_count) {
-    // this will solve maximize problems, refactor to allow for minimize later!!!!!!!!!!!!!!!!!
-    // /maybe add artificial varaibles)
-    // perform simplex procedures
-    while (!is_optimal(tableau[tableau.length - 1])) { // refactor to allow minimize
+function simplex_solver(tableau, solution_mix, cj_columns, cj_rows, dict, total_var_count, min_or_max) {
+    while (!is_optimal(min_or_max, tableau[tableau.length - 1])) {
         // determine pivot_column
         let pivot_column = 0
         for (let i = 0; i < total_var_count; i++) {
-            if (tableau[tableau.length - 1][i] > tableau[tableau.length - 1][pivot_column]) {
+            if ((min_or_max == "max" && tableau[tableau.length - 1][i] > tableau[tableau.length - 1][pivot_column]) || (min_or_max == "min" && tableau[tableau.length - 1][i] < tableau[tableau.length - 1][pivot_column])) {
                 pivot_column = i
             }
         }
@@ -117,9 +128,9 @@ function simplex_maximize_solver(tableau, solution_mix, cj_columns, cj_rows, dic
 
         for (let i = 0; i < tableau.length - 2; i++) {
             if (i != pivot_row) {
-                let old_row = [...tableau[i]] // constant for each iteration so just old_row[pivot_column] could be stored instead
+                let old_value = tableau[i][pivot_column]
                 for (let j = 0; j < tableau[i].length; j++) {
-                    tableau[i][j] = old_row[j] - old_row[pivot_column] * tableau[pivot_row][j]
+                    tableau[i][j] = tableau[i][j] - old_value * tableau[pivot_row][j]
                 }
             }
         }
@@ -146,10 +157,10 @@ function simplex_maximize_solver(tableau, solution_mix, cj_columns, cj_rows, dic
     console.log({ total_sum })
 }
 
-function is_optimal(objective_function) {
+function is_optimal(min_or_max, objective_function) {
     let result = true
     for (let i = 0; i < objective_function.length; i++) {
-        if (objective_function[i] > 0) {
+        if ((min_or_max == "max" && objective_function[i] > 0) || (min_or_max == "min" && objective_function[i] < 0)) {
             result = false
             break
         }
