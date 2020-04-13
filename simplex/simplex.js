@@ -46,10 +46,10 @@ document.getElementById("optimize").addEventListener("click", () => {
     // slack/ surplus variables
     for (let i = 0; i < ineq_count; i++) {
         // tableau[i][var_count + i] = (ineq_types[i].selectedIndex == 0) ? 1 : -1
-        if(ineq_types[i].selectedIndex == 0){
+        if (ineq_types[i].selectedIndex == 0) {
             tableau[i][var_count + i] = 1
         }
-        else if(ineq_types[i].selectedIndex == 1){
+        else if (ineq_types[i].selectedIndex == 1) {
             tableau[i][var_count + i] = -1
         }
     }
@@ -87,9 +87,8 @@ document.getElementById("optimize").addEventListener("click", () => {
     }
     else {
         // minimize
-        tableau[tableau.length - 1] = tableau[tableau.length - 1].map(x => -1 * x)
+        tableau[tableau.length - 1] = tableau[tableau.length - 1].map(x => -1 * x) // not entirely convinced, should refactor to more reliable minimize functionality
         simplex_solver(tableau, solution_mix, cj_columns, cj_rows, dict, vars.length, "min")
-        
     }
 })
 
@@ -155,7 +154,34 @@ function simplex_solver(tableau, solution_mix, cj_columns, cj_rows, dict, total_
     }
     console.table(tableau)
     console.log({ total_sum })
+
+    // wow this is some ugly code but i am lazy, too lazy to even write a capital i
+    let results = document.getElementById("results")
+    let optimal_value = document.createElement("p")
+    optimal_value.textContent = "Optimal Z = " + total_sum
+    results.append(optimal_value)
+    for (let i = 0; i < tableau.length - 2; i++) {
+        if (dict[solution_mix[i]] < total_var_count - solution_mix.length) { // only display non slack variables
+            let p = document.createElement("p")
+            p.textContent = solution_mix[i] + " = " + tableau[i][tableau[i].length - 1]
+            results.appendChild(p)
+        }
+    }
+    let close = document.createElement("p")
+    close.textContent = "Click here to close."
+    results.append(close)
+    results.style.display = "block"
+    results.addEventListener('mousedown', removeChildren)
+
+    function removeChildren() {
+        for (let i = results.childElementCount - 1; i >= 0; i--) {
+            results.removeChild(results.childNodes[i]);
+        }
+        results.style.display = "none";
+        results.removeEventListener('mousedown', removeChildren);
+    }
 }
+
 
 function is_optimal(min_or_max, objective_function) {
     let result = true
@@ -167,6 +193,7 @@ function is_optimal(min_or_max, objective_function) {
     }
     return result
 }
+
 
 function get_pivot_row(constants, divisors) {
     let ratios = []
